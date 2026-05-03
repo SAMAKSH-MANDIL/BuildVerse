@@ -46,7 +46,7 @@ main {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
-  padding: 40px 22px 300px;
+  padding: 40px 22px 360px;
   position: relative;
 }
 
@@ -54,12 +54,13 @@ main {
   z-index: 0;
   object-fit: cover;
   transform: scale(1.18);
+  filter: brightness(1.25);
 }
 
 .hero-overlay {
   background:
-    radial-gradient(circle at center, transparent 0%, transparent 45%, rgba(2, 0, 3, 0.25) 75%, #020003 100%),
-    linear-gradient(180deg, transparent 0%, transparent 65%, rgba(2, 0, 3, 0.15) 85%, #020003 100%);
+    radial-gradient(circle at center, transparent 0%, transparent 45%, rgba(2, 0, 3, 0.15) 75%, rgba(2, 0, 3, 0.8) 100%),
+    linear-gradient(180deg, transparent 0%, transparent 65%, rgba(2, 0, 3, 0.1) 85%, #020003 100%);
   inset: 0;
   position: absolute;
   z-index: 1;
@@ -69,7 +70,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 34px;
-  margin: 0 auto;
+  margin: -100px auto 0;
   max-width: 1120px;
   position: relative;
   text-align: center;
@@ -174,25 +175,28 @@ main {
 }
 
 .collab-logo {
-  height: 68px;
-  width: 320px;
+  background: #ffffff;
+  border-radius: 14px;
+  display: flex;
+  height: 100px;
+  padding: 12px 24px;
   position: relative;
-  filter: brightness(1.2) contrast(1.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 220px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .collab-logo:hover {
-  filter: brightness(1.5) contrast(1.2);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .collab-logo img {
-  object-fit: contain;
-}
-
-.college-logo,
-.highkernel-logo {
-  width: 320px;
+  object-fit: contain !important;
+  padding: 0;
+  position: relative !important;
 }
 
 .footer-collab-logo-row {
@@ -749,7 +753,7 @@ main {
   color: rgba(255, 255, 255, 0.86);
   display: flex;
   font-size: 14px;
-  gap: 12px;
+  gap: 8px;
 }
 
 .event-row h4 {
@@ -1200,17 +1204,20 @@ main {
 
   .collab-logo-row {
     flex-direction: column;
-    gap: 6px;
+    gap: 16px;
   }
 
   .collab-logo {
-    height: 42px;
-    width: 200px;
+    height: 110px;
+    width: 100%;
+    max-width: 340px;
+    padding: 8px 16px;
   }
 
   .college-logo,
   .highkernel-logo {
-    width: 200px;
+    width: 100%;
+    max-width: 340px;
   }
 
   .stats-grid,

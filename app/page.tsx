@@ -267,7 +267,7 @@ export default function Home() {
   const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setShowNav(window.scrollY > 100);
+    const handleScroll = () => setShowNav(window.scrollY > 400);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -422,6 +422,7 @@ export default function Home() {
                     <div className="event-row" key={`${day.day}-${title}`}>
                       <div className="event-time">
                         <span>{start}</span>
+                        <span>-</span>
                         <span>{end}</span>
                       </div>
                       <div>
@@ -586,8 +587,14 @@ export default function Home() {
           </div>
           <Button />
           <div className="collab-logo-row footer-collab-logo-row" aria-label="Collaboration partners">
-            <div className="collab-logo college-logo">
-              <Image src="/collab-assets/college_logo_clean.png" alt="LNCT Group of Colleges" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
+            <div className="collab-logo klic-logo">
+              <Image src="/collab-assets/klic_bigger.png" alt="KLIC" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
+            </div>
+            <div className="collab-logo lnct-logo">
+              <Image src="/collab-assets/lnct_bigger.png" alt="LNCT" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
+            </div>
+            <div className="collab-logo anupam-logo">
+              <Image src="/collab-assets/anupam_bigger.png" alt="Anupam" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
             </div>
             <div className="collab-logo highkernel-logo">
               <Image src="/collab-assets/HighKernel_clean.png" alt="HighKernel" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
