@@ -180,6 +180,14 @@ main {
   min-width: 112px;
 }
 
+.text-logo {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 21px;
+  font-weight: 800;
+  min-width: max-content;
+  text-transform: uppercase;
+}
+
 .ticker-logo img,
 .sponsor-logo img {
   height: 100%;
@@ -369,7 +377,7 @@ main {
 
 .highlights-section .feature-lead,
 .highlights-section .feature-grid .image-card:not(.feature-lead) {
-  min-height: 470px;
+  min-height: 500px;
 }
 
 .highlights-section .feature-lead img {
@@ -396,7 +404,7 @@ main {
 
 .highlights-section .image-card:not(.feature-lead) .image-card-copy {
   bottom: 26px;
-  top: 166px;
+  top: 152px;
 }
 
 .highlights-section .image-card:not(.feature-lead) h3 {
@@ -408,7 +416,27 @@ main {
 }
 
 .highlights-section .image-card:not(.feature-lead) p {
-  margin-top: 132px;
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 78px;
+}
+
+.track-points {
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 11px;
+  line-height: 1.42;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.track-points li::before {
+  color: #fff;
+  content: "+";
+  margin-right: 8px;
 }
 
 .image-card {
@@ -665,9 +693,9 @@ main {
 }
 
 .price-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   margin: 0 auto;
-  max-width: 920px;
+  max-width: 460px;
 }
 
 .price-card {
@@ -684,8 +712,12 @@ main {
   display: block;
   font-size: 72px;
   line-height: 1;
-  margin: 18px 0;
+  margin: 18px 0 4px;
   padding: 0 28px;
+}
+
+.price-unit {
+  margin: 0 0 22px;
 }
 
 .price-card-media {
@@ -854,10 +886,9 @@ main {
 
 .sponsor-grid {
   align-items: center;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
-  max-width: 760px;
-  row-gap: 28px;
+  max-width: 960px;
 }
 
 .sponsor-logo {
@@ -867,6 +898,30 @@ main {
   justify-content: center;
   opacity: 0.46;
   padding: 0 10px;
+}
+
+.partner-card {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  min-height: 190px;
+  padding: 26px;
+}
+
+.partner-card h3 {
+  font-family: var(--font-anton), Impact, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.partner-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 18px 0 0;
 }
 
 .footer-section {

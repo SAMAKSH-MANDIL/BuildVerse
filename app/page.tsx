@@ -11,157 +11,202 @@ const img = {
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
-const logos = [
-  { src: "/conclave-assets/5oSle4F312fYfvDtjGsG1pOdZ9M.png", alt: "GlobalBank Logo", w: 342, h: 56 },
-  { src: "/conclave-assets/7lgY5VRmD6lqzyl8KOsTC3XLhd0.png", alt: "Fulcun Logo", w: 272, h: 80 },
-  { src: "/conclave-assets/gdfuY85rxBOaatFJQKkykhcg4o.png", alt: "Nuri Logo", w: 237, h: 64 },
-  { src: "/conclave-assets/fC4bBU6KiMncfdKIMp8MnnC9H60.png", alt: "Olofi Logo", w: 236, h: 80 },
-  { src: "/conclave-assets/6LPAnKZx4M5n2cC2HDvSZQTwIkc.png", alt: "Nova Logo", w: 175, h: 42 },
-  { src: "/conclave-assets/WRDE5Zb1UvCZUTliOURuScxFY.png", alt: "Company Logo", w: 154, h: 60 },
-  { src: "/conclave-assets/eqvbIFyYSzbOB6Tg4vF0ssxZk.png", alt: "Mello Logo", w: 142, h: 47 },
-  { src: "/conclave-assets/R6Yl6oHKOQklGfY01zWtoVIfOb0.png", alt: "Nietzsche Logo", w: 372, h: 80 },
-];
-
-const sponsorLogos = [
-  ...logos.slice(0, 4),
-  { src: "/conclave-assets/ba8QcWdmfJwmBEOcYZ02YZ4rIWc.png", alt: "Nietzsche Logo", w: 1834, h: 298 },
-  { src: "/conclave-assets/WZXr7f02PULm7rIik64ZtJxNrU.png", alt: "Nietzsche Logo", w: 411, h: 146 },
-  ...logos.slice(4),
-  { src: "/conclave-assets/s6RO10DTZ2DybeJtKAdY3xjEX8.png", alt: "Nietzsche Logo", w: 362, h: 63 },
-  { src: "/conclave-assets/lRtrrZKs90aQj3aV9O4sAUFhwxc.png", alt: "Nietzsche Logo", w: 468, h: 128 },
-  { src: "/conclave-assets/3F9hshyzLc3kQRQn4mMSvPlJIE.png", alt: "Nietzsche Logo", w: 233, h: 40 },
-  { src: "/conclave-assets/SaIJQg1NenfhLCX0W17vOvyzvzg.png", alt: "Nietzsche Logo", w: 436, h: 113 },
-];
+const heroBadges = ["KLIC-AIIC", "LNCT Hackathon Club", "BuildVerse", "LNCT Campus Bhopal"];
 
 const topicCards = [
   {
-    title: "Future AGI",
-    text: "Explore how the brightest minds are building systems that think, reason, and create breakthroughs with us.",
+    title: "Web Development",
+    points: [
+      "Real-Time Systems: Collaborative apps like docs, whiteboards, coding platforms.",
+      "API Gateway: Routing, rate limiting, monitoring for microservices.",
+      "Edge Performance: CDN-like delivery and SSR optimization.",
+    ],
     image: "/conclave-assets/NDBUROjjAZwxBZ4M6nKbHCwMQ2A.png",
   },
   {
-    title: "Robotics",
-    text: "Hands-on sessions with the teams engineering the autonomous machines and shaping our physical future.",
+    title: "App Development",
+    points: [
+      "Offline-First: Apps that work offline and sync later.",
+      "Real-Time Sync: Chat and live collaboration systems.",
+      "Notifications: Smart alerts and background processing.",
+    ],
     image: "/conclave-assets/6jIZ6Eq8g3WxdxxmI0Dn8jcseec.png",
   },
   {
-    title: "Space Tech",
-    text: "Meet the builders launching satellites, designing orbital systems, and making space commercial.",
+    title: "AI/ML/Data Science",
+    points: [
+      "RAG Systems: AI assistants using document retrieval.",
+      "Multi-Agent AI: Agents automating workflows collaboratively.",
+      "Time-Series: Prediction systems for finance/weather/sales.",
+    ],
     image: "/conclave-assets/X8TegIXwpOTR3pL2eQQqsbxM04k.png",
+  },
+  {
+    title: "Web3/Blockchain",
+    points: [
+      "Decentralized Identity: Wallet-based authentication systems.",
+      "Smart Contracts: Voting, escrow, marketplaces.",
+      "DAO Governance: Community voting and proposals.",
+    ],
+    image: "/conclave-assets/u5c9rS2D9jxVYshv4mMkP46PKRs.png",
+  },
+  {
+    title: "Cybersecurity",
+    points: [
+      "Authentication: Secure login and MFA systems.",
+      "Threat Detection: Log analysis and intrusion detection.",
+      "Zero Trust: Access control and verification systems.",
+    ],
+    image: "/conclave-assets/ebkqOzQSvmNNVy1aqjKv3EpP8.png",
+  },
+  {
+    title: "Agritech/Rural",
+    points: [
+      "Crop Intelligence: Yield prediction and advisory systems.",
+      "Supply Chain: Farm-to-market logistics platforms.",
+      "Climate Systems: Weather and risk dashboards.",
+    ],
+    image: "/conclave-assets/t0vpT8B89e0xatWYn6Fl5i4SOc0.png",
+  },
+  {
+    title: "FinTech (Optional)",
+    points: [
+      "Fraud Detection: Transaction monitoring and alerts.",
+      "Payments: Gateway and transaction systems.",
+      "Financial Analytics: Expense and investment tracking.",
+    ],
+    image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
+  },
+  {
+    title: "Technical Tracks",
+    points: [
+      "Web Development",
+      "App Development",
+      "Blockchain",
+      "Artificial Intelligence / Machine Learning",
+      "Cybersecurity",
+      "Agritech",
+      "Healthcare Innovation",
+      "Game Development",
+    ],
+    image: "/conclave-assets/MlVWyIPrFox3DCCUiye3C1HN9o.png",
   },
 ];
 
 const benefits = [
   {
-    title: "Frontier Access",
-    text: "Sit across the table from AI founders, robotics engineers, and space-tech builders who are shaping the industries you want to break into.",
+    title: "National Visibility",
+    text: "Compete on a pan-India platform designed to position LNCT as a serious innovation hub for student builders.",
     image: "/conclave-assets/u5c9rS2D9jxVYshv4mMkP46PKRs.png",
   },
   {
-    title: "Live Demos",
-    text: "Pitch your project, research, or startup to investors and founders on stage real feedback, real stakes, real opportunity that shapes your future and trajectory.",
+    title: "Product-First Culture",
+    text: "Move beyond surface-level prototypes and build solutions judged on architecture, feasibility, user value, and execution.",
     image: "/conclave-assets/ebkqOzQSvmNNVy1aqjKv3EpP8.png",
   },
   {
-    title: "Networking Opportunity",
-    text: "300 hand-picked builders from 25+ countries. The people you meet here become lifelong allies.",
+    title: "Mentor Access",
+    text: "Get feedback through mentor interactions, technical reviews, jury evaluations, and final presentation rounds.",
     image: "/conclave-assets/t0vpT8B89e0xatWYn6Fl5i4SOc0.png",
   },
   {
-    title: "Build Sessions",
-    text: "Skip the theory. Join workshops where you actually ship an AI agent and a hardware prototype in a day.",
+    title: "Startup Pathways",
+    text: "Create opportunities for internships, placements, startup visibility, and industry-academia collaboration.",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
   },
   {
-    title: "Official Recognition",
-    text: "Walk away with credentials and showcase wins that stand out on every application you write.",
+    title: "BuildVerse Community",
+    text: "Join a long-term builder community built around deep-tech, product thinking, and real-world problem solving.",
     image: "/conclave-assets/MlVWyIPrFox3DCCUiye3C1HN9o.png",
   },
 ];
 
 const speakers = [
-  { name: "Soleio", role: "Founder, Genesis", day: "D a y 1", src: "/conclave-assets/kHOliUQkUgvUAJBekDzgmN50gFk.png" },
-  { name: "Edina Skylar", role: "Co-Founder, Coin AI", day: "D a y 2", src: "/conclave-assets/bReA71l9zVg2hi0QgY9QO14aqI.png" },
-  { name: "Marcus Sterling", role: "CEO, Global Robotics", day: "D a y 1", src: "/conclave-assets/D92zq2C2w8732WRhjpZCXpTJZk.png" },
-  { name: "Ilya Savko", role: "Professor, Harvard", day: "D a y 2", src: "/conclave-assets/iEp6Mt51uskR9tE0fviElyBa4.png" },
-  { name: "Dr. Aris Thorne", role: "Scientist, Neural Horizon", day: "D a y 3", src: "/conclave-assets/LyUlSCxo3eta46pjxHdZvdmoM.png" },
-  { name: "Elena Vance", role: "VP, Tuska AI", day: "D a y 3", src: "/conclave-assets/LeKOIw1X3DkOtnGXpObXXvNlE.png" },
+  { name: "Mentor Interactions", role: "Technical and product guidance during the finale", day: "Finale", src: "/conclave-assets/kHOliUQkUgvUAJBekDzgmN50gFk.png" },
+  { name: "Jury Evaluation", role: "Deep review of innovation, feasibility, and execution", day: "Review", src: "/conclave-assets/bReA71l9zVg2hi0QgY9QO14aqI.png" },
+  { name: "Architecture Review", role: "Assessment of scalability and system design quality", day: "Tech", src: "/conclave-assets/D92zq2C2w8732WRhjpZCXpTJZk.png" },
+  { name: "Product Thinking", role: "Evaluation of user value, usability, and market relevance", day: "Build", src: "/conclave-assets/iEp6Mt51uskR9tE0fviElyBa4.png" },
+  { name: "Final Presentation", role: "Pitching, communication, and demo quality", day: "Pitch", src: "/conclave-assets/LyUlSCxo3eta46pjxHdZvdmoM.png" },
+  { name: "Builder Community", role: "BuildVerse network for long-term collaboration", day: "Grow", src: "/conclave-assets/LeKOIw1X3DkOtnGXpObXXvNlE.png" },
 ];
 
 const scheduleDays = [
   {
     day: "DAY 1",
-    date: "18TH SEP",
-    place: "Hayes Valley",
+    date: "7TH JUNE",
+    place: "LNCT Campus",
     image: img.sf,
     events: [
-      ["09:00", "10:00", "Opening Keynote: The Post-Prompt Era", "Exploring the transition from chatbots to autonomous agentic systems that think and act independently."],
-      ["11:00", "12:00", "Workshop: Multi-Agent Swarms", "A deep dive into orchestration layers for scaling AI agents across complex enterprise environments."],
-      ["18:30", "20:00", "Mixers: Founders & LLM Researchers", "An evening of high-bandwidth networking in the heart of San Francisco's AI district."],
+      ["08:00", "08:30", "Registration & Reporting", "Teams arrive at LNCT Campus, complete reporting, and get ready for the opening block."],
+      ["09:00", "09:30", "Inauguration Ceremony", "The national-level hackathon begins with the event vision, structure, and welcome address."],
+      ["09:30", "10:00", "Rules Briefing & Instructions", "Participants receive the rules, judging flow, submission expectations, and execution guidelines."],
+      ["10:00", "13:15", "Hackathon Begins", "Teams start building their solutions across deep-tech tracks."],
+      ["14:00", "17:30", "Development Session", "Focused product building, architecture decisions, and prototype development."],
+      ["18:00", "20:00", "Judging & Mentorship Round 1", "Mentors and evaluators review progress, guide teams, and test early execution depth."],
+    ],
+  },
+  {
+    day: "OVERNIGHT",
+    date: "8TH JUNE",
+    place: "Build Sprint",
+    image: img.town,
+    events: [
+      ["01:15", "02:00", "Jamming / Entertainment", "A short energy reset before the overnight development push."],
+      ["02:00", "04:30", "Development Continues", "Teams keep building, debugging, and validating their prototypes through the night."],
+      ["04:30", "06:00", "Judging Round 2", "A second technical review checks progress, clarity, feasibility, and execution under pressure."],
+      ["07:00", "07:45", "Breakfast", "Teams regroup before entering the final development block."],
     ],
   },
   {
     day: "DAY 2",
-    date: "19TH SEP",
-    place: "Soma Tech District",
-    image: img.town,
-    events: [
-      ["09:00", "10:00", "Keynote: Giving Code a Body", "A look at the humanoid race and the engineering challenges of bringing AI into the physical world."],
-      ["11:00", "12:00", "Workshop: Single-AI Operations", "Witnessing live training of robotic actuators in high-fidelity simulations before deploying."],
-      ["14:00", "16:30", "Actuators and Kinetic Design", "Understanding the hardware constraints of the next generation of industrial and consumer robotics."],
-      ["09:00", "10:00", "The Kinetic Forge: Prototype Night", "A rapid-prototyping session where builders showcase their latest robotic limbs and sensor arrays."],
-    ],
-  },
-  {
-    day: "DAY 3",
-    date: "20TH SEP",
-    place: "Civic Center",
+    date: "8TH JUNE",
+    place: "Finale",
     image: img.townhouse,
     events: [
-      ["09:00", "12:00", "Session: Software-Defined Satellites", "How modular software is revolutionizing orbital infrastructure and satellite communication."],
-      ["14:00", "18:00", "Launchpad: Global Student Pitch", "The top 10 student-led deep-tech startups pitch their vision to Tier-1 Silicon Valley VCs."],
-      ["20:00", "22:00", "Closing Gala: Architects Award", "Final ceremony at the Palace of Fine Arts celebrating the most innovative builds of Conclave '26."],
+      ["07:45", "12:00", "Final Development Session", "Teams refine features, fix issues, and prepare the final product submission."],
+      ["13:00", "15:00", "Final Preparation & Submission", "Submission window for pitch material, prototype links, architecture, and team details."],
+      ["15:00", "17:00", "Final Judging Round", "Jury evaluates innovation, technical depth, product thinking, scalability, and presentation quality."],
+      ["17:00", "18:00", "Results & Prize Distribution", "Final results, recognitions, and closing ceremony for the top-performing teams."],
     ],
   },
 ];
 
 const joiners = [
-  ["Next-Gen Builders", "Young entrepreneurs 18-26 juggling studies and startups."],
-  ["International Innovators", "International delegates from any continent in the world."],
-  ["Elite University Scholars", "Top university students from leading global institutions."],
-  ["Ethical Visionaries", "Future leaders who wants to build humanity's future in deep tech"],
+  ["Student Builders", "Students ready to solve real-world problems with serious technical execution."],
+  ["Developers & Designers", "Teams who can build usable products, interfaces, systems, and working prototypes."],
+  ["Startup-Minded Teams", "Participants thinking beyond demos toward scalability, market value, and adoption."],
+  ["Problem Solvers", "Builders interested in AI, web, apps, cybersecurity, blockchain, agritech, healthcare, and games."],
 ];
 
 const privileges = [
-  ["Triple-Frontier Access", "Full entry to all primary summit venues: YBCA (AI), Miner (Robotics), and the Herbst Theatre (Space)."],
-  ["Investor Office Hours", "Feedback sessions with Tier-1 VCs and Deep Tech founders in exclusive small-group settings."],
-  ["The Showcase Slot", "A dedicated platform to pitch your research, startup, or hardware prototype to elite peers and backers."],
-  ["Sovereign Alumni Network", "Lifetime membership in a private, verified network of the world's top 300 elite student builders."],
-  ["The SF Hospitality Stack", "Curated networking dinners, premium refreshments, and private transport between summit hubs."],
+  ["Hybrid Selection Process", "Round 1 filters serious, technically capable teams through online submissions before the offline finale."],
+  ["30-Hour Offline Finale", "Top 20 shortlisted teams build live at LNCT Campus in a continuous high-pressure environment."],
+  ["Mentor & Jury Access", "Participants receive feedback through mentor interactions, technical reviews, and final judging rounds."],
+  ["Deep Evaluation", "Teams are judged on innovation, problem impact, architecture, feasibility, scalability, UI/UX, and presentation."],
+  ["Opportunities & Community", "The event supports internships, networking, startup visibility, and long-term BuildVerse builder growth."],
 ];
 
 const faqs = [
-  "Who can attend the Students Global Summit 2025?",
-  "What is included in the participation fee?",
-  "How long will each days go for?",
-  "Will there be an opportunity to meet the speakers?",
-  "How many attendees will be at the summit?",
+  ["Who can participate in the hackathon?", "Students, developers, designers, and builder teams from across India can participate through the online selection process."],
+  ["What is the event format?", "The hackathon has an online submission round followed by a 30-hour offline grand finale for shortlisted teams."],
+  ["What should teams submit in Round 1?", "Teams should submit a problem statement, pitch deck, proposed solution, prototype or MVP if available, technical architecture, and team details."],
+  ["How many teams reach the offline finale?", "The final shortlisted pool is planned for the Top 20 teams."],
+  ["Where will the grand finale happen?", "The 30-hour offline grand finale will take place at LNCT Campus, Bhopal."],
+];
+
+const partners = [
+  ["KLIC-AIIC", "Kalchuri Incubation Centre and Anupam Incubation and Innovation Centre lead the organising body."],
+  ["LNCT Hackathon Club", "The collaboration partner supporting hackathon execution, community, and builder outreach."],
+  ["HighKernel", "A technology-first innovation startup building scalable software, AI-driven systems, and deep-tech solutions for real-world problems."],
 ];
 
 const pricePlans = [
   {
-    name: "GENERAL PASS",
-    price: "$49",
-    image: "/conclave-assets/NDBUROjjAZwxBZ4M6nKbHCwMQ2A.png",
-    code: "ADM-049",
-    features: ["Complete transportation", "Access to 5 summit sessions"],
-  },
-  {
-    name: "VIP PASS",
-    price: "$149",
+    name: "ROUND 2",
+    price: "500",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
-    code: "ADM-149",
-    features: ["Complete transportation", "Access to all summit sessions", "Government certification", "Innovation showcase slot"],
+    code: "FINALE-20",
+    features: ["Team Size : Upto 4 Members", "Price : 500 Per Team"],
   },
 ];
 
@@ -170,8 +215,8 @@ const barcodeBars = [3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 3, 1, 1, 4, 2, 3, 1, 2, 4, 1,
 
 function Button({ className = "" }: { className?: string }) {
   return (
-    <a href="#pricing" className={`ticket-button ${className}`}>
-      Get Tickets
+    <a href="#register" className={`ticket-button ${className}`}>
+      Register Now
     </a>
   );
 }
@@ -184,7 +229,7 @@ function FeatureCard({
   item,
   index,
 }: {
-  item: { title: string; text: string; image: string };
+  item: { title: string; text?: string; points?: string[]; image: string };
   index: number;
 }) {
   return (
@@ -193,7 +238,15 @@ function FeatureCard({
       <div className="noise" />
       <div className="image-card-copy">
         <h3>{item.title}</h3>
-        <p>{item.text}</p>
+        {item.points ? (
+          <ul className="track-points">
+            {item.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{item.text}</p>
+        )}
       </div>
     </article>
   );
@@ -207,18 +260,18 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-content">
           <div className="hero-meta">
-            <span>SAN FRANSICO, CA</span>
-            <span>18 - 20 SEPTEMBER</span>
+            <span>LNCT CAMPUS, BHOPAL</span>
+            <span>7 - 8 JUNE</span>
           </div>
-          <h1>{"CONCLAVE'26"}</h1>
+          <h1>BUILDVERSE</h1>
           <Button />
         </div>
         <div className="logo-strip">
-          <p>{"Trusted by World's Biggest Startups:"}</p>
+          <p>National Level 30-Hour Deep Tech Hackathon</p>
           <div className="ticker">
-            {[...logos, ...logos].map((logo, index) => (
-              <div className="ticker-logo" key={`${logo.src}-${index}`}>
-                <Image src={logo.src} alt={logo.alt} width={logo.w} height={logo.h} />
+            {[...heroBadges, ...heroBadges].map((badge, index) => (
+              <div className="ticker-logo text-logo" key={`${badge}-${index}`}>
+                {badge}
               </div>
             ))}
           </div>
@@ -227,14 +280,14 @@ export default function Home() {
 
       <section className="statement-section">
         <h2>
-          <span>3 DAYS. 300 BUILDERS.</span> ONE MISSION: UNIFYING THE INTELLIGENCE OF AI, THE AGENCY OF ROBOTICS, AND THE EXPLORATION OF SPACE
+          <span>30 HOURS. TOP 20 TEAMS.</span> ONE MISSION: BUILDING DEEP-TECH PRODUCTS THAT SOLVE REAL-WORLD PROBLEMS
         </h2>
         <div className="stats-grid">
           {[
-            ["200+", "Elite Builders"],
-            ["0+", "Countries Represented"],
-            ["0+", "Keynote Speakers"],
-            ["0+", "Unicorn Founders"],
+            ["250+", "Expected Registrations"],
+            ["20", "Finalist Teams"],
+            ["30", "Continuous Hours"],
+            ["India", "Pan India Reach"],
           ].map(([value, label]) => (
             <div className="stat" key={label}>
               <strong>{value}</strong>
@@ -249,24 +302,24 @@ export default function Home() {
           <Image src={img.about} alt="People listening to an event, illustrative" fill sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
         <div className="about-copy">
-          <Kicker>ABOUT THE SUMMIT</Kicker>
-          <h2>72-hour immersion into deep-tech</h2>
-          <p>{"Conclave '26 brings the brightest minds to the San Francisco frontier to master the Trinity: Artificial Intelligence as the brain, Robotics as the body, and Space as the destination."}</p>
-          <p>We are here to ensure that the builders of today become the architects of tomorrow.</p>
+          <Kicker>ABOUT THE HACKATHON</Kicker>
+          <h2>30-hour immersion into deep-tech</h2>
+          <p>KLIC-AIIC, in collaboration with LNCT Hackathon Club, is organizing a national-level deep-tech hackathon for innovators, developers, builders, and problem-solvers from across India.</p>
+          <p>The event focuses on product thinking, scalable system design, technical depth, feasibility, architecture, and real-world execution.</p>
         </div>
       </section>
 
       <section className="content-section highlights-section">
-        <div className="section-heading">
-          <Kicker>HIGHLIGHTS</Kicker>
-          <h2>EVENT HIGHLIGHTS</h2>
-          <p>Covering all the most important topics</p>
-        </div>
+          <div className="section-heading">
+            <Kicker>HIGHLIGHTS</Kicker>
+            <h2>HACKATHON TRACKS</h2>
+            <p>High-impact themes selected for current industry relevance</p>
+          </div>
           <div className="feature-grid">
             <article className="feature-lead">
               <Image src={img.footer} alt="Golden Gate bridge, illustrative" fill sizes="(max-width: 900px) 100vw, 25vw" />
               <div className="feature-lead-copy">
-                <h3>TOPICS THAT SHAPE THE FUTURE OF THE HUMAN RACE</h3>
+                <h3>CORE THEMES / TRACKS</h3>
               </div>
           </article>
           {topicCards.map((item, index) => (
@@ -280,9 +333,9 @@ export default function Home() {
         <div className="join-overlay" />
         <div className="join-shell">
           <div className="section-heading">
-            <Kicker>tHE GROUP</Kicker>
+            <Kicker>THE BUILDERS</Kicker>
             <h2>WHO SHOULD JOIN</h2>
-            <p>Clarifying who belongs at this summit</p>
+            <p>For teams ready to build, validate, and present real solutions</p>
           </div>
           <div className="join-grid">
             {joiners.map(([title, text]) => (
@@ -298,10 +351,10 @@ export default function Home() {
       <section className="speakers-section" id="speakers">
         <div className="speaker-heading">
           <div>
-            <Kicker>THE SPEAKERS</Kicker>
-            <h2>{"Leaders Guiding THE MINDS AT CONCLAVE'26"}</h2>
+            <Kicker>MENTORS & JURY</Kicker>
+            <h2>DEEP EVALUATION FOR SERIOUS BUILDERS</h2>
           </div>
-          <p>Voices from front lines of intelligence, autonomy, and the orbital frontier</p>
+          <p>Every team is evaluated on innovation, architecture, feasibility, scalability, usability, and presentation quality</p>
         </div>
         <div className="speakers-grid">
           {speakers.map((speaker) => (
@@ -320,8 +373,8 @@ export default function Home() {
       <section className="schedule-section" id="schedule">
         <div className="section-heading">
           <Kicker>SCHEDULE</Kicker>
-          <h2>THESE 3 DAYS CAN CHANGE YOUR REALITY</h2>
-          <p>Where intellect meets culture and chaos.</p>
+          <h2>30 HOURS OF BUILDING, REVIEW, AND FINAL PITCHES</h2>
+          <p>Offline grand finale structure for shortlisted teams</p>
         </div>
         <div className="schedule-list">
           {scheduleDays.map((day) => (
@@ -357,11 +410,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pricing-section" id="pricing">
+      <section className="pricing-section" id="register">
         <div className="section-heading">
-          <Kicker>PRICING</Kicker>
-          <h2>TICKET PRICES</h2>
-          <p>{"Secure your place at the world's premier summit on AI governance"}</p>
+          <Kicker>SELECTION PROCESS</Kicker>
+          <h2>HOW TEAMS ENTER THE FINALE</h2>
+          <p>Hybrid selection process followed by a 30-hour offline grand finale for shortlisted teams</p>
         </div>
         <div className="price-grid">
           {pricePlans.map((plan) => (
@@ -371,6 +424,7 @@ export default function Home() {
               </div>
               <h3>{plan.name}</h3>
               <strong>{plan.price}</strong>
+              <p className="price-unit">Per Team</p>
               <p>Includes:</p>
               <ul>
                 {plan.features.map((feature) => (
@@ -384,9 +438,9 @@ export default function Home() {
                 ))}
               </div>
               <div className="ticket-meta">
-                <span>SAN FRANCISCO, CA</span>
+                <span>LNCT BHOPAL</span>
                 <span>{plan.code}</span>
-                <span>12 - 15 SEP</span>
+                <span>7 - 8 JUNE</span>
               </div>
             </article>
           ))}
@@ -395,9 +449,9 @@ export default function Home() {
 
       <section className="privileges-section">
         <div className="privileges-intro">
-          <Kicker>TICKET PRIVILEGES</Kicker>
-          <h2>{"What's included in your pass"}</h2>
-              <p>Every pass is a blueprint for access. We handle the friction of the city so you can focus on the future.</p>
+          <Kicker>EVENT STRUCTURE</Kicker>
+          <h2>What teams experience</h2>
+          <p>A serious builder environment designed for real product development, deep technical review, and long-term innovation outcomes.</p>
             </div>
             <div className="privileges-list">
               {privileges.map(([title, text], index) => {
@@ -418,8 +472,8 @@ export default function Home() {
       <section className="benefits-section">
         <div className="section-heading wide">
           <Kicker>{"WHAT'S IN IT FOR YOU"}</Kicker>
-          <h2>WHY should you attend?</h2>
-          <p>Connect with global leaders, showcase your innovation, and earn recognition that opens doors worldwide</p>
+          <h2>WHY participate?</h2>
+          <p>{"Build, validate, present, and connect inside one of Bhopal's flagship national-level innovation platforms"}</p>
         </div>
         <div className="benefits-grid">
           {benefits.map((item, index) => (
@@ -432,25 +486,26 @@ export default function Home() {
         <div className="section-heading">
           <Kicker>{"FAQ's"}</Kicker>
           <h2>GOT QUESTIONS?</h2>
-          <p>{"We've got all the answers ready for you"}</p>
+          <p>Quick answers for teams preparing their submissions</p>
         </div>
         <div className="faq-list">
-          {faqs.map((faq) => (
-            <details key={faq}>
-              <summary>{faq}</summary>
-              <p>All event details will be shared with confirmed attendees before the summit begins.</p>
+          {faqs.map(([question, answer]) => (
+            <details key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
             </details>
           ))}
         </div>
       </section>
 
       <section className="sponsors-section">
-        <h2>THANKS TO OUR SPONSORS</h2>
+        <h2>ORGANISING ECOSYSTEM</h2>
         <div className="sponsor-grid">
-          {sponsorLogos.map((logo, index) => (
-            <div className="sponsor-logo" key={`${logo.src}-${index}`}>
-              <Image src={logo.src} alt={logo.alt} width={logo.w} height={logo.h} />
-            </div>
+          {partners.map(([name, text]) => (
+            <article className="partner-card" key={name}>
+              <h3>{name}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
       </section>
@@ -460,36 +515,36 @@ export default function Home() {
         <div className="footer-overlay" />
         <div className="footer-content">
           <nav aria-label="Footer navigation">
-            <a href="#speakers">Speakers</a>
+            <a href="#speakers">Mentors</a>
             <a href="#schedule">Schedule</a>
-            <a href="#pricing">Get Tickets</a>
+            <a href="#register">Register</a>
           </nav>
-          <h2>{"JOIN THE EVENT THAT'LL SHAPE YOUR FUTURE"}</h2>
+          <h2>BUILD WHAT BECOMES YOUR FUTURE</h2>
           <div className="footer-meta">
             <div>
-              <p>18th September, 2026</p>
-              <span>9:00 AM</span>
+              <p>7th - 8th June</p>
+              <span>LNCT Campus, Bhopal</span>
             </div>
             <div className="calendar">
-              <strong>SEP</strong>
-              <span>18</span>
-              <small>FRI</small>
+              <strong>JUN</strong>
+              <span>7</span>
+              <small>DAY 1</small>
             </div>
           </div>
           <Button />
           <div className="copyright">
-            <span>{"\u00A9 Conclave 2026. All rights reserved."}</span>
-            <a href="https://x.com/AdheebHameed">Created by Adheeb</a>
+            <span>{"\u00A9 BuildVerse Hackathon. All rights reserved."}</span>
+            <a href="#navigation">KLIC-AIIC x LNCT Hackathon Club x HighKernel</a>
           </div>
         </div>
       </footer>
 
       <nav className="floating-nav" aria-label="Primary navigation">
-        <a href="#speakers">Speakers</a>
+        <a href="#speakers">Mentors</a>
         <span />
         <a href="#schedule">Schedule</a>
         <span />
-        <a href="#pricing">Get Tickets</a>
+        <a href="#register">Register</a>
       </nav>
     </main>
   );

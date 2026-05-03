@@ -14,9 +14,9 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "Conclave 2026 - San Francisco",
+  title: "BuildVerse Hackathon - LNCT Bhopal",
   description:
-    "3 days with 300 builders all with just one mission. Join the world's premier student summit on AI, Robotics, and Space Tech. September 18-20, 2026 in San Francisco.",
+    "National Level 30-Hour Deep Tech Hackathon by KLIC-AIIC in collaboration with LNCT Hackathon Club at LNCT Campus, Bhopal.",
 };
 
 export default function RootLayout({
