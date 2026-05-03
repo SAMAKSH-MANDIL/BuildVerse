@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Box, BriefcaseBusiness, Coffee, MessageCircle, Network } from "lucide-react";
 
 const img = {
   hero: "/conclave-assets/tfNtqsRwAfctVDeT3doARvKh410.png",
@@ -147,6 +148,26 @@ const faqs = [
   "How many attendees will be at the summit?",
 ];
 
+const pricePlans = [
+  {
+    name: "GENERAL PASS",
+    price: "$49",
+    image: "/conclave-assets/NDBUROjjAZwxBZ4M6nKbHCwMQ2A.png",
+    code: "ADM-049",
+    features: ["Complete transportation", "Access to 5 summit sessions"],
+  },
+  {
+    name: "VIP PASS",
+    price: "$149",
+    image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
+    code: "ADM-149",
+    features: ["Complete transportation", "Access to all summit sessions", "Government certification", "Innovation showcase slot"],
+  },
+];
+
+const privilegeIcons = [BriefcaseBusiness, MessageCircle, Box, Network, Coffee];
+const barcodeBars = [3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 3, 1, 1, 4, 2, 3, 1, 2, 4, 1, 3, 2, 2, 1, 4, 3, 1, 2, 1, 4, 2, 3];
+
 function Button({ className = "" }: { className?: string }) {
   return (
     <a href="#pricing" className={`ticket-button ${className}`}>
@@ -206,7 +227,7 @@ export default function Home() {
 
       <section className="statement-section">
         <h2>
-          <span>3</span> DAYS. 300 BUILDERS. ONE MISSION: UNIFYING THE INTELLIGENCE OF AI, THE AGENCY OF ROBOTICS, AND THE EXPLORATION OF SPACE
+          <span>3 DAYS. 300 BUILDERS.</span> ONE MISSION: UNIFYING THE INTELLIGENCE OF AI, THE AGENCY OF ROBOTICS, AND THE EXPLORATION OF SPACE
         </h2>
         <div className="stats-grid">
           {[
@@ -235,18 +256,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="content-section">
+      <section className="content-section highlights-section">
         <div className="section-heading">
           <Kicker>HIGHLIGHTS</Kicker>
           <h2>EVENT HIGHLIGHTS</h2>
           <p>Covering all the most important topics</p>
         </div>
-        <div className="feature-grid">
-          <article className="feature-lead">
-            <Image src={img.group} alt="4 students looking at a glowing tablet, illustrative" fill sizes="(max-width: 900px) 100vw, 44vw" />
-            <div className="feature-lead-copy">
-              <h3>TOPICS THAT SHAPE THE FUTURE OF THE HUMAN RACE</h3>
-            </div>
+          <div className="feature-grid">
+            <article className="feature-lead">
+              <Image src={img.footer} alt="Golden Gate bridge, illustrative" fill sizes="(max-width: 900px) 100vw, 25vw" />
+              <div className="feature-lead-copy">
+                <h3>TOPICS THAT SHAPE THE FUTURE OF THE HUMAN RACE</h3>
+              </div>
           </article>
           {topicCards.map((item, index) => (
             <FeatureCard key={item.title} item={item} index={index} />
@@ -255,26 +276,31 @@ export default function Home() {
       </section>
 
       <section className="join-section">
-        <div className="section-heading">
-          <Kicker>tHE GROUP</Kicker>
-          <h2>WHO SHOULD JOIN</h2>
-          <p>Clarifying who belongs at this summit</p>
-        </div>
-        <div className="join-grid">
-          {joiners.map(([title, text], index) => (
-            <article key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
+        <Image src={img.group} alt="Builders gathered under a glowing sky" fill sizes="100vw" />
+        <div className="join-overlay" />
+        <div className="join-shell">
+          <div className="section-heading">
+            <Kicker>tHE GROUP</Kicker>
+            <h2>WHO SHOULD JOIN</h2>
+            <p>Clarifying who belongs at this summit</p>
+          </div>
+          <div className="join-grid">
+            {joiners.map(([title, text]) => (
+              <article key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="speakers-section" id="speakers">
-        <div className="section-heading wide">
-          <Kicker>THE SPEAKERS</Kicker>
-          <h2>{"Leaders Guiding THE MINDS AT CONCLAVE'26"}</h2>
+        <div className="speaker-heading">
+          <div>
+            <Kicker>THE SPEAKERS</Kicker>
+            <h2>{"Leaders Guiding THE MINDS AT CONCLAVE'26"}</h2>
+          </div>
           <p>Voices from front lines of intelligence, autonomy, and the orbital frontier</p>
         </div>
         <div className="speakers-grid">
@@ -282,8 +308,8 @@ export default function Home() {
             <article className="speaker-card" key={speaker.name}>
               <div className="speaker-image">
                 <Image src={speaker.src} alt={`Portrait of ${speaker.name}`} fill sizes="(max-width: 768px) 50vw, 16vw" />
+                <span className="speaker-day-badge">{speaker.day.replaceAll(" ", "")}</span>
               </div>
-              <p>{speaker.day}</p>
               <h3>{speaker.name}</h3>
               <span>{speaker.role}</span>
             </article>
@@ -338,22 +364,28 @@ export default function Home() {
           <p>{"Secure your place at the world's premier summit on AI governance"}</p>
         </div>
         <div className="price-grid">
-          {[
-            ["GENERAL PASS", "$49", ["Complete transportation", "Access to 5 summit sessions"]],
-            ["VIP PASS", "$149", ["Complete transportation", "Access to all summit sessions", "Government certification", "Innovation showcase slot"]],
-          ].map(([name, price, features]) => (
-            <article className="price-card" key={name as string}>
-              <h3>{name}</h3>
-              <strong>{price}</strong>
+          {pricePlans.map((plan) => (
+            <article className="price-card" key={plan.name}>
+              <div className="price-card-media">
+                <Image src={plan.image} alt="" fill sizes="(max-width: 768px) 100vw, 320px" />
+              </div>
+              <h3>{plan.name}</h3>
+              <strong>{plan.price}</strong>
               <p>Includes:</p>
               <ul>
-                {(features as string[]).map((feature) => (
+                {plan.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
               <Button />
+              <div className="barcode" aria-hidden="true">
+                {barcodeBars.map((width, index) => (
+                  <i key={`${plan.code}-${index}`} style={{ width }} />
+                ))}
+              </div>
               <div className="ticket-meta">
                 <span>SAN FRANCISCO, CA</span>
+                <span>{plan.code}</span>
                 <span>12 - 15 SEP</span>
               </div>
             </article>
@@ -365,16 +397,22 @@ export default function Home() {
         <div className="privileges-intro">
           <Kicker>TICKET PRIVILEGES</Kicker>
           <h2>{"What's included in your pass"}</h2>
-          <p>Every pass is a blueprint for access. We handle the friction of the city so you can focus on the future.</p>
-        </div>
-        <div className="privileges-list">
-          {privileges.map(([title, text]) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
+              <p>Every pass is a blueprint for access. We handle the friction of the city so you can focus on the future.</p>
+            </div>
+            <div className="privileges-list">
+              {privileges.map(([title, text], index) => {
+                const Icon = privilegeIcons[index];
+                return (
+                  <article key={title}>
+                    <Icon aria-hidden="true" />
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
       </section>
 
       <section className="benefits-section">
@@ -426,7 +464,7 @@ export default function Home() {
             <a href="#schedule">Schedule</a>
             <a href="#pricing">Get Tickets</a>
           </nav>
-          <h2>{"JOIN THE EVENT That'LL SHape YOUR FUTURE"}</h2>
+          <h2>{"JOIN THE EVENT THAT'LL SHAPE YOUR FUTURE"}</h2>
           <div className="footer-meta">
             <div>
               <p>18th September, 2026</p>

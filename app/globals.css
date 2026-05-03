@@ -92,6 +92,7 @@ main {
 .hero h1,
 .statement-section h2,
 .section-heading h2,
+.speaker-heading h2,
 .privileges-intro h2,
 .sponsors-section h2,
 .footer-section h2,
@@ -118,6 +119,11 @@ main {
   font-size: clamp(76px, 13.4vw, 172px);
   letter-spacing: -0.02em;
   line-height: 0.95;
+}
+
+.hero-content .ticket-button {
+  align-self: center;
+  min-width: 240px;
 }
 
 .ticket-button {
@@ -280,7 +286,7 @@ main {
 }
 
 .section-kicker {
-  color: rgba(255, 255, 255, 0.68);
+  color: #c000ff;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -289,7 +295,6 @@ main {
 }
 
 .content-section,
-.join-section,
 .speakers-section,
 .schedule-section,
 .pricing-section,
@@ -320,6 +325,10 @@ main {
   display: grid;
   gap: 18px;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.highlights-section .feature-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .feature-lead {
@@ -358,6 +367,50 @@ main {
   min-height: 195px;
 }
 
+.highlights-section .feature-lead,
+.highlights-section .feature-grid .image-card:not(.feature-lead) {
+  min-height: 470px;
+}
+
+.highlights-section .feature-lead img {
+  object-position: center;
+}
+
+.highlights-section .feature-lead h3 {
+  font-size: clamp(34px, 3.6vw, 54px);
+}
+
+.highlights-section .image-card:not(.feature-lead) {
+  background: #121212;
+}
+
+.highlights-section .image-card:not(.feature-lead)::after {
+  background: linear-gradient(180deg, rgba(2, 0, 3, 0.02), rgba(2, 0, 3, 0.54) 132px, transparent 133px);
+}
+
+.highlights-section .image-card:not(.feature-lead) > img {
+  bottom: auto !important;
+  height: 132px !important;
+  object-fit: cover;
+}
+
+.highlights-section .image-card:not(.feature-lead) .image-card-copy {
+  bottom: 26px;
+  top: 166px;
+}
+
+.highlights-section .image-card:not(.feature-lead) h3 {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.08;
+  text-transform: none;
+}
+
+.highlights-section .image-card:not(.feature-lead) p {
+  margin-top: 132px;
+}
+
 .image-card {
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -392,7 +445,6 @@ main {
   max-width: 560px;
 }
 
-.join-grid,
 .price-grid,
 .benefits-grid,
 .sponsor-grid {
@@ -400,53 +452,123 @@ main {
   gap: 18px;
 }
 
-.join-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.join-grid article,
 .price-card,
-.privileges-list article,
 .faq-list details {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 16px;
 }
 
-.join-grid article {
-  min-height: 250px;
-  padding: 28px;
+.join-section {
+  margin: 90px 0;
+  min-height: 470px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
 }
 
-.join-grid span {
-  color: rgba(255, 255, 255, 0.34);
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 38px;
+.join-section > img {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.join-overlay {
+  background:
+    linear-gradient(180deg, #020003 0%, rgba(2, 0, 3, 0.25) 30%, rgba(2, 0, 3, 0.48) 58%, #020003 100%),
+    radial-gradient(circle at center, rgba(2, 0, 3, 0.08), rgba(2, 0, 3, 0.82) 80%);
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.join-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1180px;
+  min-height: 470px;
+  padding: 92px 22px 54px;
+  position: relative;
+  z-index: 2;
+}
+
+.join-grid {
+  display: grid;
+  gap: 42px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.join-grid article {
+  min-width: 0;
 }
 
 .join-grid h3 {
-  font-size: 31px;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  text-transform: none;
 }
 
 .speakers-grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .speaker-card {
   min-width: 0;
 }
 
+.speaker-heading {
+  align-items: end;
+  display: grid;
+  gap: 70px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  margin-bottom: 54px;
+}
+
+.speaker-heading h2 {
+  font-size: clamp(48px, 6vw, 78px);
+}
+
+.speaker-heading p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  max-width: 430px;
+}
+
 .speaker-image {
-  aspect-ratio: 1;
+  aspect-ratio: 0.92;
   border: 1px solid var(--line);
-  border-radius: 15px;
-  margin-bottom: 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
   overflow: hidden;
   position: relative;
+  background: #fff;
+}
+
+.speaker-image img {
+  filter: grayscale(1);
+  object-fit: cover;
+}
+
+.speaker-day-badge {
+  background: rgba(25, 25, 25, 0.74);
+  border-radius: 7px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  left: 12px;
+  padding: 9px 13px;
+  position: absolute;
+  top: 12px;
+  z-index: 2;
 }
 
 .speaker-card p {
@@ -457,13 +579,13 @@ main {
 }
 
 .speaker-card h3 {
-  font-size: 24px;
+  font-size: 30px;
 }
 
-.speaker-card span {
+.speaker-card > span {
   color: var(--muted);
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 7px;
 }
 
@@ -549,18 +671,39 @@ main {
 }
 
 .price-card {
-  padding: 32px;
+  overflow: hidden;
+  padding: 0;
 }
 
 .price-card h3 {
   font-size: 30px;
+  padding: 26px 28px 0;
 }
 
 .price-card > strong {
   display: block;
   font-size: 72px;
   line-height: 1;
-  margin: 22px 0;
+  margin: 18px 0;
+  padding: 0 28px;
+}
+
+.price-card-media {
+  aspect-ratio: 1.9;
+  overflow: hidden;
+  position: relative;
+}
+
+.price-card-media::after {
+  background: linear-gradient(180deg, rgba(2, 0, 3, 0.1), rgba(2, 0, 3, 0.72));
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.price-card-media img {
+  object-fit: cover;
 }
 
 .price-card ul {
@@ -569,7 +712,11 @@ main {
   gap: 12px;
   list-style: none;
   margin: 0 0 28px;
-  padding: 0;
+  padding: 0 28px;
+}
+
+.price-card p {
+  padding: 0 28px;
 }
 
 .price-card li::before {
@@ -579,23 +726,41 @@ main {
 }
 
 .price-card .ticket-button {
-  width: 100%;
+  margin: 0 28px;
+  width: calc(100% - 56px);
+}
+
+.barcode {
+  align-items: stretch;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 3px;
+  height: 58px;
+  margin: 26px 28px 0;
+  opacity: 0.68;
+  padding-top: 14px;
+}
+
+.barcode i {
+  background: #fff;
+  display: block;
 }
 
 .ticket-meta {
-  border-top: 1px solid var(--line);
   color: rgba(255, 255, 255, 0.54);
   display: flex;
   font-size: 12px;
   font-weight: 700;
   justify-content: space-between;
-  margin-top: 28px;
-  padding-top: 22px;
+  margin-top: 10px;
+  padding: 0 28px 26px;
   text-transform: uppercase;
 }
 
 .privileges-section {
   align-items: start;
+  gap: 82px;
+  max-width: 1100px;
 }
 
 .privileges-intro {
@@ -604,17 +769,41 @@ main {
 }
 
 .privileges-list {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 46px;
+  padding-left: 62px;
+  position: relative;
+}
+
+.privileges-list::before {
+  background: #c000ff;
+  content: "";
+  height: 78px;
+  left: -3px;
+  position: absolute;
+  top: 0;
+  width: 5px;
 }
 
 .privileges-list article {
-  padding: 26px;
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  padding: 0;
 }
 
 .privileges-list h3 {
-  font-size: 30px;
+  font-size: 34px;
+}
+
+.privileges-list svg {
+  color: #c000ff;
+  height: 30px;
+  stroke-width: 1.7;
+  width: 30px;
 }
 
 .benefits-grid {
@@ -665,17 +854,19 @@ main {
 
 .sponsor-grid {
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 760px;
+  row-gap: 28px;
 }
 
 .sponsor-logo {
   align-items: center;
-  border: 1px solid var(--line);
-  border-radius: 14px;
   display: flex;
-  height: 108px;
+  height: 34px;
   justify-content: center;
-  padding: 28px;
+  opacity: 0.46;
+  padding: 0 10px;
 }
 
 .footer-section {
@@ -806,6 +997,10 @@ main {
 }
 
 @media (max-width: 1100px) {
+  .highlights-section .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .speakers-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -849,6 +1044,10 @@ main {
   .feature-lead,
   .schedule-image {
     min-height: 420px;
+  }
+
+  .highlights-section .feature-grid {
+    grid-template-columns: 1fr;
   }
 
   .privileges-intro {
