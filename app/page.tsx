@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Box, BriefcaseBusiness, Coffee, MessageCircle, Network } from "lucide-react";
+import { motion } from "framer-motion";
 
 const img = {
   hero: "/conclave-assets/tfNtqsRwAfctVDeT3doARvKh410.png",
@@ -188,11 +191,11 @@ const partners = [
 
 const pricePlans = [
   {
-    name: "ROUND 2",
+    name: "Registration",
     price: "500",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
     code: "FINALE-20",
-    features: ["Team Size : Upto 4 Members", "Price : 500 Per Team"],
+    features: ["Team Size : Upto 4 Members", "Breakfast and lunch provided", "Price : 500 Per Team"],
   },
 ];
 
@@ -201,14 +204,28 @@ const barcodeBars = [3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 3, 1, 1, 4, 2, 3, 1, 2, 4, 1,
 
 function Button({ className = "" }: { className?: string }) {
   return (
-    <a href="#register" className={`ticket-button ${className}`}>
+    <motion.a 
+      href="#register" 
+      className={`ticket-button ${className}`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
       Register Now
-    </a>
+    </motion.a>
   );
 }
 
 function Kicker({ children }: { children: React.ReactNode }) {
-  return <p className="section-kicker">{children}</p>;
+  return (
+    <motion.p 
+      className="section-kicker"
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      {children}
+    </motion.p>
+  );
 }
 
 function FeatureCard({
@@ -219,7 +236,14 @@ function FeatureCard({
   index: number;
 }) {
   return (
-    <article className="image-card" style={{ transitionDelay: `${index * 70}ms` }}>
+    <motion.article 
+      className="image-card"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+    >
       <Image src={item.image} alt="City Pixel background image" fill sizes="(max-width: 768px) 100vw, 33vw" />
       <div className="noise" />
       <div className="image-card-copy">
@@ -234,7 +258,7 @@ function FeatureCard({
           <p>{item.text}</p>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -258,15 +282,22 @@ export default function Home() {
         <h2 className="scroll-fill-text">30 HOURS. TOP 20 TEAMS. ONE MISSION: BUILDING DEEP-TECH PRODUCTS THAT SOLVE REAL-WORLD PROBLEMS</h2>
         <div className="stats-grid">
           {[
-            ["250+", "Expected Registrations"],
+            ["250+", "Expected Participation"],
             ["20", "Finalist Teams"],
             ["30", "Continuous Hours"],
             ["India", "Pan India Reach"],
-          ].map(([value, label]) => (
-            <div className="stat" key={label}>
+          ].map(([value, label], index) => (
+            <motion.div 
+              className="stat" 
+              key={label}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+            >
               <strong>{value}</strong>
               <span>{label}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -312,11 +343,17 @@ export default function Home() {
             <p>For teams ready to build, validate, and present real solutions</p>
           </div>
           <div className="join-grid">
-            {joiners.map(([title, text]) => (
-              <article key={title}>
+            {joiners.map(([title, text], index) => (
+              <motion.article 
+                key={title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
                 <h3>{title}</h3>
                 <p>{text}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -351,8 +388,15 @@ export default function Home() {
           <p>Offline grand finale structure for shortlisted teams</p>
         </div>
         <div className="schedule-list">
-          {scheduleDays.map((day) => (
-            <article className="schedule-day" key={day.day}>
+          {scheduleDays.map((day, index) => (
+            <motion.article 
+              className="schedule-day" 
+              key={day.day}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+            >
               <div className="schedule-image">
                 <Image src={day.image} alt={day.place} fill sizes="(max-width: 900px) 100vw, 32vw" />
               </div>
@@ -379,7 +423,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -391,8 +435,16 @@ export default function Home() {
           <p>Hybrid selection process followed by a 30-hour offline grand finale for shortlisted teams</p>
         </div>
         <div className="price-grid">
-          {pricePlans.map((plan) => (
-            <article className="price-card" key={plan.name}>
+          {pricePlans.map((plan, index) => (
+            <motion.article 
+              className="price-card" 
+              key={plan.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -5 }}
+            >
               <div className="price-card-media">
                 <Image src={plan.image} alt="" fill sizes="(max-width: 768px) 100vw, 320px" />
               </div>
@@ -416,7 +468,7 @@ export default function Home() {
                 <span>{plan.code}</span>
                 <span>7 - 8 JUNE</span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -431,13 +483,19 @@ export default function Home() {
               {privileges.map(([title, text], index) => {
                 const Icon = privilegeIcons[index];
                 return (
-                  <article key={title}>
+                  <motion.article 
+                    key={title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                  >
                     <Icon aria-hidden="true" />
                     <div>
                       <h3>{title}</h3>
                       <p>{text}</p>
                     </div>
-                  </article>
+                  </motion.article>
                 );
               })}
             </div>
@@ -463,11 +521,17 @@ export default function Home() {
           <p>Quick answers for teams preparing their submissions</p>
         </div>
         <div className="faq-list">
-          {faqs.map(([question, answer]) => (
-            <details key={question}>
+          {faqs.map(([question, answer], index) => (
+            <motion.details 
+              key={question}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+            >
               <summary>{question}</summary>
               <p>{answer}</p>
-            </details>
+            </motion.details>
           ))}
         </div>
       </section>
@@ -475,11 +539,18 @@ export default function Home() {
       <section className="sponsors-section">
         <h2>ORGANISING ECOSYSTEM</h2>
         <div className="sponsor-grid">
-          {partners.map(([name, text]) => (
-            <article className="partner-card" key={name}>
+          {partners.map(([name, text], index) => (
+            <motion.article 
+              className="partner-card" 
+              key={name}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+            >
               <h3>{name}</h3>
               <p>{text}</p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
