@@ -11,7 +11,7 @@ const img = {
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
-const heroBadges = ["KLIC-AIIC", "LNCT Hackathon Club", "BuildVerse", "LNCT Campus Bhopal"];
+const heroBadges = ["KLIC-AIIC", "LNCT Hackathon Club", "HighKernel", "BuildVerse", "LNCT Campus Bhopal"];
 
 const topicCards = [
   {
@@ -69,27 +69,13 @@ const topicCards = [
     image: "/conclave-assets/t0vpT8B89e0xatWYn6Fl5i4SOc0.png",
   },
   {
-    title: "FinTech (Optional)",
+    title: "FinTech",
     points: [
       "Fraud Detection: Transaction monitoring and alerts.",
       "Payments: Gateway and transaction systems.",
       "Financial Analytics: Expense and investment tracking.",
     ],
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
-  },
-  {
-    title: "Technical Tracks",
-    points: [
-      "Web Development",
-      "App Development",
-      "Blockchain",
-      "Artificial Intelligence / Machine Learning",
-      "Cybersecurity",
-      "Agritech",
-      "Healthcare Innovation",
-      "Game Development",
-    ],
-    image: "/conclave-assets/MlVWyIPrFox3DCCUiye3C1HN9o.png",
   },
 ];
 
@@ -121,14 +107,14 @@ const benefits = [
   },
 ];
 
-const speakers = [
-  { name: "Mentor Interactions", role: "Technical and product guidance during the finale", day: "Finale", src: "/conclave-assets/kHOliUQkUgvUAJBekDzgmN50gFk.png" },
-  { name: "Jury Evaluation", role: "Deep review of innovation, feasibility, and execution", day: "Review", src: "/conclave-assets/bReA71l9zVg2hi0QgY9QO14aqI.png" },
-  { name: "Architecture Review", role: "Assessment of scalability and system design quality", day: "Tech", src: "/conclave-assets/D92zq2C2w8732WRhjpZCXpTJZk.png" },
-  { name: "Product Thinking", role: "Evaluation of user value, usability, and market relevance", day: "Build", src: "/conclave-assets/iEp6Mt51uskR9tE0fviElyBa4.png" },
-  { name: "Final Presentation", role: "Pitching, communication, and demo quality", day: "Pitch", src: "/conclave-assets/LyUlSCxo3eta46pjxHdZvdmoM.png" },
-  { name: "Builder Community", role: "BuildVerse network for long-term collaboration", day: "Grow", src: "/conclave-assets/LeKOIw1X3DkOtnGXpObXXvNlE.png" },
-];
+// const speakers = [
+//   { name: "Mentor Interactions", role: "Technical and product guidance during the finale", day: "Finale", src: "/conclave-assets/kHOliUQkUgvUAJBekDzgmN50gFk.png" },
+//   { name: "Jury Evaluation", role: "Deep review of innovation, feasibility, and execution", day: "Review", src: "/conclave-assets/bReA71l9zVg2hi0QgY9QO14aqI.png" },
+//   { name: "Architecture Review", role: "Assessment of scalability and system design quality", day: "Tech", src: "/conclave-assets/D92zq2C2w8732WRhjpZCXpTJZk.png" },
+//   { name: "Product Thinking", role: "Evaluation of user value, usability, and market relevance", day: "Build", src: "/conclave-assets/iEp6Mt51uskR9tE0fviElyBa4.png" },
+//   { name: "Final Presentation", role: "Pitching, communication, and demo quality", day: "Pitch", src: "/conclave-assets/LyUlSCxo3eta46pjxHdZvdmoM.png" },
+//   { name: "Builder Community", role: "BuildVerse network for long-term collaboration", day: "Grow", src: "/conclave-assets/LeKOIw1X3DkOtnGXpObXXvNlE.png" },
+// ];
 
 const scheduleDays = [
   {
@@ -197,7 +183,7 @@ const faqs = [
 const partners = [
   ["KLIC-AIIC", "Kalchuri Incubation Centre and Anupam Incubation and Innovation Centre lead the organising body."],
   ["LNCT Hackathon Club", "The collaboration partner supporting hackathon execution, community, and builder outreach."],
-  ["HighKernel", "A technology-first innovation startup building scalable software, AI-driven systems, and deep-tech solutions for real-world problems."],
+  ["HighKernel", "The technology collaboration partner supporting scalable software, AI-driven systems, and deep-tech solutions for real-world problems."],
 ];
 
 const pricePlans = [
@@ -279,9 +265,7 @@ export default function Home() {
       </section>
 
       <section className="statement-section">
-        <h2>
-          <span>30 HOURS. TOP 20 TEAMS.</span> ONE MISSION: BUILDING DEEP-TECH PRODUCTS THAT SOLVE REAL-WORLD PROBLEMS
-        </h2>
+        <h2 className="scroll-fill-text">30 HOURS. TOP 20 TEAMS. ONE MISSION: BUILDING DEEP-TECH PRODUCTS THAT SOLVE REAL-WORLD PROBLEMS</h2>
         <div className="stats-grid">
           {[
             ["250+", "Expected Registrations"],
@@ -304,7 +288,7 @@ export default function Home() {
         <div className="about-copy">
           <Kicker>ABOUT THE HACKATHON</Kicker>
           <h2>30-hour immersion into deep-tech</h2>
-          <p>KLIC-AIIC, in collaboration with LNCT Hackathon Club, is organizing a national-level deep-tech hackathon for innovators, developers, builders, and problem-solvers from across India.</p>
+          <p>KLIC-AIIC, in collaboration with LNCT Hackathon Club and HighKernel, is organizing a national-level deep-tech hackathon for innovators, developers, builders, and problem-solvers from across India.</p>
           <p>The event focuses on product thinking, scalable system design, technical depth, feasibility, architecture, and real-world execution.</p>
         </div>
       </section>
@@ -348,7 +332,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="speakers-section" id="speakers">
+      {/* <section className="speakers-section" id="speakers">
         <div className="speaker-heading">
           <div>
             <Kicker>MENTORS & JURY</Kicker>
@@ -368,7 +352,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="schedule-section" id="schedule">
         <div className="section-heading">
@@ -510,12 +494,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer-section">
+      <footer className="footer-section" id="footer">
         <Image src={img.footer} alt="Golden gate bridge san francisco" fill sizes="100vw" />
         <div className="footer-overlay" />
         <div className="footer-content">
           <nav aria-label="Footer navigation">
-            <a href="#speakers">Mentors</a>
             <a href="#schedule">Schedule</a>
             <a href="#register">Register</a>
           </nav>
@@ -532,6 +515,14 @@ export default function Home() {
             </div>
           </div>
           <Button />
+          <div className="collab-logo-row footer-collab-logo-row" aria-label="Collaboration partners">
+            <div className="collab-logo college-logo">
+              <Image src="/collab-assets/college_logo_clean.png" alt="LNCT Group of Colleges" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
+            </div>
+            <div className="collab-logo highkernel-logo">
+              <Image src="/collab-assets/HighKernel_clean.png" alt="HighKernel" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
+            </div>
+          </div>
           <div className="copyright">
             <span>{"\u00A9 BuildVerse Hackathon. All rights reserved."}</span>
             <a href="#navigation">KLIC-AIIC x LNCT Hackathon Club x HighKernel</a>
@@ -540,8 +531,6 @@ export default function Home() {
       </footer>
 
       <nav className="floating-nav" aria-label="Primary navigation">
-        <a href="#speakers">Mentors</a>
-        <span />
         <a href="#schedule">Schedule</a>
         <span />
         <a href="#register">Register</a>

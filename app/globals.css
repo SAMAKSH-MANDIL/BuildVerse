@@ -91,6 +91,7 @@ main {
 
 .hero h1,
 .statement-section h2,
+.about-copy h2,
 .section-heading h2,
 .speaker-heading h2,
 .privileges-intro h2,
@@ -165,6 +166,34 @@ main {
   text-align: center;
 }
 
+.collab-logo-row {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.collab-logo {
+  height: 74px;
+  position: relative;
+}
+
+.collab-logo img {
+  object-fit: contain;
+}
+
+.college-logo {
+  width: min(45vw, 430px);
+}
+
+.highkernel-logo {
+  width: min(32vw, 310px);
+}
+
+.footer-collab-logo-row {
+  margin: 2px 0 26px;
+}
+
 .ticker {
   align-items: center;
   display: flex;
@@ -211,8 +240,33 @@ main {
   text-wrap: balance;
 }
 
-.statement-section h2 span {
-  color: #fff;
+.scroll-fill-text {
+  background-image: linear-gradient(90deg, #fff 0%, #fff 50%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.16) 100%);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-fill-text {
+    animation: statement-text-fill linear both;
+    animation-range: entry 30% cover 55%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes statement-text-fill {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
 }
 
 .stats-grid {
@@ -272,6 +326,15 @@ main {
 .section-heading h2,
 .privileges-intro h2 {
   font-size: clamp(42px, 7vw, 80px);
+}
+
+.about-copy h2 {
+  font-family: var(--font-anton), Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.04;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .about-copy p,
@@ -693,14 +756,17 @@ main {
 }
 
 .price-grid {
+  justify-items: center;
   grid-template-columns: minmax(0, 1fr);
   margin: 0 auto;
   max-width: 460px;
+  width: 100%;
 }
 
 .price-card {
   overflow: hidden;
   padding: 0;
+  width: min(100%, 460px);
 }
 
 .price-card h3 {
@@ -925,7 +991,7 @@ main {
 }
 
 .footer-section {
-  min-height: 760px;
+  min-height: 820px;
   overflow: hidden;
   position: relative;
 }
@@ -1033,14 +1099,11 @@ main {
 
 .copyright {
   align-items: center;
-  bottom: 28px;
   color: rgba(255, 255, 255, 0.56);
   display: flex;
   font-size: 14px;
   justify-content: space-between;
-  left: 22px;
-  position: absolute;
-  right: 22px;
+  width: 100%;
 }
 
 .floating-nav {
@@ -1112,12 +1175,30 @@ main {
 
 @media (max-width: 640px) {
   .hero {
-    min-height: 700px;
+    min-height: 800px;
     padding-top: 80px;
   }
 
   .logo-strip {
-    bottom: 24px;
+    bottom: 18px;
+    gap: 12px;
+  }
+
+  .collab-logo-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .collab-logo {
+    height: 46px;
+  }
+
+  .college-logo {
+    width: min(82vw, 315px);
+  }
+
+  .highkernel-logo {
+    width: min(72vw, 270px);
   }
 
   .stats-grid,

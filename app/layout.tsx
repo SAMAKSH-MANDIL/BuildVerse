@@ -16,7 +16,7 @@ const anton = Anton({
 export const metadata: Metadata = {
   title: "BuildVerse Hackathon - LNCT Bhopal",
   description:
-    "National Level 30-Hour Deep Tech Hackathon by KLIC-AIIC in collaboration with LNCT Hackathon Club at LNCT Campus, Bhopal.",
+    "National Level 30-Hour Deep Tech Hackathon by KLIC-AIIC in collaboration with LNCT Hackathon Club and HighKernel at LNCT Campus, Bhopal.",
 };
 
 export default function RootLayout({
