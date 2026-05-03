@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Box, BriefcaseBusiness, Coffee, MessageCircle, Network } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const img = {
   hero: "/conclave-assets/tfNtqsRwAfctVDeT3doARvKh410.png",
@@ -263,6 +264,14 @@ function FeatureCard({
 }
 
 export default function Home() {
+  const [showNav, setShowNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowNav(window.scrollY > 100);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main>
       <section className="hero" id="navigation">
@@ -591,7 +600,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <nav className="floating-nav" aria-label="Primary navigation">
+      <nav className={`floating-nav${showNav ? " visible" : ""}`} aria-label="Primary navigation">
         <a href="#schedule">Schedule</a>
         <span />
         <a href="#register">Register</a>

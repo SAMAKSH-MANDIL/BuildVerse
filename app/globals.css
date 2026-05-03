@@ -44,9 +44,9 @@ main {
 .hero {
   align-items: center;
   display: flex;
-  min-height: 920px;
+  min-height: 100vh;
   overflow: hidden;
-  padding: 92px 22px 56px;
+  padding: 40px 22px 300px;
   position: relative;
 }
 
@@ -58,8 +58,8 @@ main {
 
 .hero-overlay {
   background:
-    radial-gradient(circle at center, rgba(2, 0, 3, 0.06), rgba(2, 0, 3, 0.6) 52%, #020003 91%),
-    linear-gradient(180deg, rgba(2, 0, 3, 0.08), rgba(2, 0, 3, 0.78) 82%, #020003);
+    radial-gradient(circle at center, transparent 0%, transparent 45%, rgba(2, 0, 3, 0.25) 75%, #020003 100%),
+    linear-gradient(180deg, transparent 0%, transparent 65%, rgba(2, 0, 3, 0.15) 85%, #020003 100%);
   inset: 0;
   position: absolute;
   z-index: 1;
@@ -174,20 +174,25 @@ main {
 }
 
 .collab-logo {
-  height: 74px;
+  height: 68px;
+  width: 320px;
   position: relative;
+  filter: brightness(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.collab-logo:hover {
+  filter: brightness(1.5) contrast(1.2);
+  transform: translateY(-2px);
 }
 
 .collab-logo img {
   object-fit: contain;
 }
 
-.college-logo {
-  width: min(45vw, 430px);
-}
-
+.college-logo,
 .highkernel-logo {
-  width: min(32vw, 310px);
+  width: 320px;
 }
 
 .footer-collab-logo-row {
@@ -1110,8 +1115,17 @@ main {
   left: 50%;
   position: fixed;
   top: 24px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-80px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
   z-index: 50;
+}
+
+.floating-nav.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 1100px) {
@@ -1190,15 +1204,13 @@ main {
   }
 
   .collab-logo {
-    height: 46px;
+    height: 42px;
+    width: 200px;
   }
 
-  .college-logo {
-    width: min(82vw, 315px);
-  }
-
+  .college-logo,
   .highkernel-logo {
-    width: min(72vw, 270px);
+    width: 200px;
   }
 
   .stats-grid,
