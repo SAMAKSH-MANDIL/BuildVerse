@@ -11,7 +11,7 @@ const img = {
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
-const heroBadges = ["KLIC-AIIC", "LNCT Hackathon Club", "HighKernel", "BuildVerse", "LNCT Campus Bhopal"];
+
 
 const topicCards = [
   {
@@ -251,16 +251,6 @@ export default function Home() {
           </div>
           <h1>BUILDVERSE</h1>
           <Button />
-        </div>
-        <div className="logo-strip">
-          <p>National Level 30-Hour Deep Tech Hackathon</p>
-          <div className="ticker">
-            {[...heroBadges, ...heroBadges].map((badge, index) => (
-              <div className="ticker-logo text-logo" key={`${badge}-${index}`}>
-                {badge}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
