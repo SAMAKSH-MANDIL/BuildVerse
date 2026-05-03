@@ -46,7 +46,7 @@ main {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
-  padding: 40px 22px 360px;
+  padding: 55px 22px 360px;
   position: relative;
 }
 
@@ -562,9 +562,10 @@ main {
 .join-section {
   margin: 90px 0;
   min-height: 470px;
-  overflow: hidden;
+  /* Removed overflow: hidden to allow text to move up into black space without being cut off */
   padding: 0;
   position: relative;
+  z-index: 5;
 }
 
 .join-section > img {
@@ -575,33 +576,57 @@ main {
 
 .join-overlay {
   background:
-    linear-gradient(180deg, #020003 0%, rgba(2, 0, 3, 0.25) 30%, rgba(2, 0, 3, 0.48) 58%, #020003 100%),
-    radial-gradient(circle at center, rgba(2, 0, 3, 0.08), rgba(2, 0, 3, 0.82) 80%);
-  inset: 0;
+    linear-gradient(180deg, 
+      #020003 0%, 
+      #020003 25%, 
+      transparent 45%, 
+      transparent 60%, 
+      #020003 85%, 
+      #020003 100%
+    );
+  inset: -120px 0 0 0;
   position: absolute;
   z-index: 1;
 }
 
 .join-shell {
+  --join-text-top: -120px; /* 👈 Header position (negative = higher) */
+  --join-grid-bottom: 55px; /* 👈 Grid position (positive = lower) */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1180px;
   min-height: 470px;
-  padding: 92px 22px 54px;
+  padding: 0 22px 30px; /* Reduced bottom padding to give more room at the bottom */
   position: relative;
   z-index: 2;
 }
 
+.join-shell .section-heading {
+  margin-top: var(--join-text-top);
+}
+
 .join-grid {
   display: grid;
-  gap: 42px;
+  gap: 24px;
   grid-template-columns: repeat(4, 1fr);
+  transform: translateY(var(--join-grid-bottom));
 }
 
 .join-grid article {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   min-width: 0;
+  padding: 24px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.join-grid article:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
 }
 
 .join-grid h3 {

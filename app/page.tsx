@@ -25,7 +25,7 @@ const topicCards = [
       "API Gateway: Routing, rate limiting, monitoring for microservices.",
       "Edge Performance: CDN-like delivery and SSR optimization.",
     ],
-    image: "/conclave-assets/NDBUROjjAZwxBZ4M6nKbHCwMQ2A.png",
+    image: "/conclave-assets/track-webdev.svg",
   },
   {
     title: "App Development",
@@ -34,7 +34,7 @@ const topicCards = [
       "Real-Time Sync: Chat and live collaboration systems.",
       "Notifications: Smart alerts and background processing.",
     ],
-    image: "/conclave-assets/6jIZ6Eq8g3WxdxxmI0Dn8jcseec.png",
+    image: "/conclave-assets/track-appdev.svg",
   },
   {
     title: "AI/ML/Data Science",
@@ -43,7 +43,7 @@ const topicCards = [
       "Multi-Agent AI: Agents automating workflows collaboratively.",
       "Time-Series: Prediction systems for finance/weather/sales.",
     ],
-    image: "/conclave-assets/X8TegIXwpOTR3pL2eQQqsbxM04k.png",
+    image: "/conclave-assets/track-aiml.svg",
   },
   {
     title: "Web3/Blockchain",
@@ -52,7 +52,7 @@ const topicCards = [
       "Smart Contracts: Voting, escrow, marketplaces.",
       "DAO Governance: Community voting and proposals.",
     ],
-    image: "/conclave-assets/u5c9rS2D9jxVYshv4mMkP46PKRs.png",
+    image: "/conclave-assets/track-web3.svg",
   },
   {
     title: "Cybersecurity",
@@ -61,7 +61,7 @@ const topicCards = [
       "Threat Detection: Log analysis and intrusion detection.",
       "Zero Trust: Access control and verification systems.",
     ],
-    image: "/conclave-assets/ebkqOzQSvmNNVy1aqjKv3EpP8.png",
+    image: "/conclave-assets/track-cybersecurity.svg",
   },
   {
     title: "Agritech/Rural",
@@ -70,7 +70,7 @@ const topicCards = [
       "Supply Chain: Farm-to-market logistics platforms.",
       "Climate Systems: Weather and risk dashboards.",
     ],
-    image: "/conclave-assets/t0vpT8B89e0xatWYn6Fl5i4SOc0.png",
+    image: "/conclave-assets/track-agritech.svg",
   },
   {
     title: "FinTech",
@@ -79,7 +79,7 @@ const topicCards = [
       "Payments: Gateway and transaction systems.",
       "Financial Analytics: Expense and investment tracking.",
     ],
-    image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
+    image: "/conclave-assets/track-fintech.svg",
   },
 ];
 

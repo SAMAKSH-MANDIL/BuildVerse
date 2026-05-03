@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <defs>
+    <radialGradient id="cbg" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#0a0a1a"/><stop offset="100%" stop-color="#020003"/></radialGradient>
+    <filter id="cg"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="cg2"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="cg3"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="600" height="300" fill="url(#cbg)"/>
+  <!-- Shield -->
+  <g filter="url(#cg)" transform="translate(230,30)">
+    <path d="M70 0 L140 30 L140 120 Q140 180 70 220 Q0 180 0 120 L0 30 Z" stroke="#00f0ff" stroke-width="1.5" fill="rgba(0,240,255,0.03)"/>
+    <path d="M70 20 L125 44 L125 115 Q125 165 70 200 Q15 165 15 115 L15 44 Z" stroke="#a855f7" stroke-width="0.6" fill="none" opacity="0.3"/>
+    <!-- Lock icon -->
+    <rect x="48" y="95" width="44" height="35" rx="6" stroke="#00f0ff" stroke-width="1.5" fill="rgba(0,240,255,0.06)"/>
+    <path d="M58 95 V80 Q58 65 70 65 Q82 65 82 80 V95" stroke="#a855f7" stroke-width="1.5" fill="none"/>
+    <circle cx="70" cy="110" r="5" fill="#00f0ff" opacity="0.6"/>
+    <line x1="70" y1="115" x2="70" y2="122" stroke="#00f0ff" stroke-width="1.5" opacity="0.5"/>
+    <!-- Checkmark -->
+    <path d="M55 60 L65 70 L85 48" stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.5"/>
+  </g>
+  <!-- Scanning lines -->
+  <g opacity="0.06" stroke="#00f0ff" stroke-width="0.5">
+    <line x1="100" y1="50" x2="500" y2="50"/><line x1="100" y1="100" x2="500" y2="100"/>
+    <line x1="100" y1="150" x2="500" y2="150"/><line x1="100" y1="200" x2="500" y2="200"/>
+    <line x1="100" y1="250" x2="500" y2="250"/>
+  </g>
+  <!-- Data streams -->
+  <g filter="url(#cg2)" opacity="0.25">
+    <text x="60" y="80" font-family="monospace" font-size="9" fill="#00f0ff">01001101</text>
+    <text x="60" y="140" font-family="monospace" font-size="9" fill="#a855f7">11010010</text>
+    <text x="60" y="200" font-family="monospace" font-size="9" fill="#00f0ff">00110101</text>
+    <text x="430" y="100" font-family="monospace" font-size="9" fill="#a855f7">10110100</text>
+    <text x="430" y="160" font-family="monospace" font-size="9" fill="#00f0ff">01101001</text>
+    <text x="430" y="220" font-family="monospace" font-size="9" fill="#a855f7">11001010</text>
+  </g>
+  <!-- Alert dots -->
+  <circle cx="100" cy="260" r="3" fill="#00f0ff" opacity="0.3" filter="url(#cg2)"/>
+  <circle cx="510" cy="50" r="2.5" fill="#a855f7" opacity="0.3" filter="url(#cg2)"/>
+</svg>

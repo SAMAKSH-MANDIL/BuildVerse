@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <defs>
+    <radialGradient id="abg2" cx="50%" cy="60%" r="70%"><stop offset="0%" stop-color="#050a0a"/><stop offset="100%" stop-color="#020003"/></radialGradient>
+    <filter id="ag"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="ag2"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="stem" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#00f0ff"/></linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#abg2)"/>
+  <!-- Ground line -->
+  <line x1="80" y1="250" x2="520" y2="250" stroke="#059669" stroke-width="0.5" opacity="0.2"/>
+  <!-- Plant / Sprout -->
+  <g filter="url(#ag)" transform="translate(250,80)">
+    <!-- Stem -->
+    <path d="M50 170 Q50 120 50 90" stroke="url(#stem)" stroke-width="2.5" fill="none"/>
+    <!-- Leaves -->
+    <path d="M50 130 Q20 100 30 70 Q50 90 50 130" stroke="#00f0ff" stroke-width="1" fill="rgba(0,240,255,0.06)"/>
+    <path d="M50 100 Q80 70 70 40 Q50 60 50 100" stroke="#059669" stroke-width="1" fill="rgba(5,150,105,0.06)"/>
+    <path d="M50 70 Q25 50 35 25 Q50 40 50 70" stroke="#00f0ff" stroke-width="0.8" fill="rgba(0,240,255,0.04)"/>
+    <!-- Data nodes on plant -->
+    <circle cx="30" cy="70" r="4" fill="#00f0ff" opacity="0.5"/>
+    <circle cx="70" cy="40" r="4" fill="#059669" opacity="0.5"/>
+    <circle cx="35" cy="25" r="3" fill="#a855f7" opacity="0.4"/>
+    <!-- Root data -->
+    <path d="M50 170 Q40 190 30 210" stroke="#a855f7" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 3"/>
+    <path d="M50 170 Q60 195 70 215" stroke="#00f0ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 3"/>
+  </g>
+  <!-- Data dashboard elements -->
+  <g filter="url(#ag)" transform="translate(380,70)" opacity="0.6">
+    <rect x="0" y="0" width="120" height="80" rx="6" stroke="#00f0ff" stroke-width="0.8" fill="rgba(0,240,255,0.02)"/>
+    <!-- Mini chart -->
+    <polyline points="15,60 30,45 45,50 60,30 75,38 90,20 105,25" stroke="#00f0ff" stroke-width="1.2" fill="none"/>
+    <text x="10" y="15" font-family="monospace" font-size="8" fill="#00f0ff" opacity="0.5">YIELD</text>
+  </g>
+  <g filter="url(#ag)" transform="translate(380,170)" opacity="0.5">
+    <rect x="0" y="0" width="120" height="60" rx="6" stroke="#a855f7" stroke-width="0.8" fill="rgba(168,85,247,0.02)"/>
+    <rect x="15" y="20" width="12" height="25" rx="2" fill="#a855f7" opacity="0.3"/>
+    <rect x="35" y="12" width="12" height="33" rx="2" fill="#00f0ff" opacity="0.3"/>
+    <rect x="55" y="18" width="12" height="27" rx="2" fill="#a855f7" opacity="0.3"/>
+    <rect x="75" y="8" width="12" height="37" rx="2" fill="#00f0ff" opacity="0.3"/>
+    <text x="10" y="14" font-family="monospace" font-size="8" fill="#a855f7" opacity="0.5">SOIL</text>
+  </g>
+  <!-- Weather icon -->
+  <g filter="url(#ag2)" transform="translate(100,80)" opacity="0.4">
+    <circle cx="40" cy="40" r="18" stroke="#00f0ff" stroke-width="1" fill="rgba(0,240,255,0.04)"/>
+    <line x1="40" y1="15" x2="40" y2="8" stroke="#00f0ff" stroke-width="1"/>
+    <line x1="40" y1="65" x2="40" y2="72" stroke="#00f0ff" stroke-width="1"/>
+    <line x1="15" y1="40" x2="8" y2="40" stroke="#00f0ff" stroke-width="1"/>
+    <line x1="65" y1="40" x2="72" y2="40" stroke="#00f0ff" stroke-width="1"/>
+  </g>
+  <circle cx="70" cy="260" r="2" fill="#059669" opacity="0.3" filter="url(#ag2)"/>
+  <circle cx="540" cy="50" r="2" fill="#a855f7" opacity="0.25" filter="url(#ag2)"/>
+</svg>

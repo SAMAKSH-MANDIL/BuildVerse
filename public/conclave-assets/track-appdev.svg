@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <defs>
+    <radialGradient id="abg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#020003"/>
+    </radialGradient>
+    <filter id="aglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="aglow2"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="acyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00f0ff"/><stop offset="100%" stop-color="#0088ff"/></linearGradient>
+    <linearGradient id="apurp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#abg)"/>
+  <g opacity="0.05" stroke="#a855f7">
+    <line x1="0" y1="60" x2="600" y2="60"/><line x1="0" y1="120" x2="600" y2="120"/>
+    <line x1="0" y1="180" x2="600" y2="180"/><line x1="0" y1="240" x2="600" y2="240"/>
+    <line x1="120" y1="0" x2="120" y2="300"/><line x1="240" y1="0" x2="240" y2="300"/>
+    <line x1="360" y1="0" x2="360" y2="300"/><line x1="480" y1="0" x2="480" y2="300"/>
+  </g>
+  <!-- Phone frame -->
+  <g filter="url(#aglow)" transform="translate(210, 20)">
+    <rect x="0" y="0" width="180" height="260" rx="24" stroke="url(#apurp)" stroke-width="1.8" fill="rgba(168,85,247,0.03)"/>
+    <!-- Notch -->
+    <rect x="60" y="6" width="60" height="8" rx="4" fill="rgba(168,85,247,0.15)"/>
+    <!-- Screen content -->
+    <rect x="16" y="28" width="148" height="20" rx="6" fill="rgba(0,240,255,0.08)"/>
+    <!-- App cards -->
+    <rect x="16" y="58" width="68" height="68" rx="10" stroke="#00f0ff" stroke-width="0.8" fill="rgba(0,240,255,0.04)"/>
+    <rect x="96" y="58" width="68" height="68" rx="10" stroke="#a855f7" stroke-width="0.8" fill="rgba(168,85,247,0.04)"/>
+    <rect x="16" y="136" width="68" height="68" rx="10" stroke="#a855f7" stroke-width="0.8" fill="rgba(168,85,247,0.04)"/>
+    <rect x="96" y="136" width="68" height="68" rx="10" stroke="#00f0ff" stroke-width="0.8" fill="rgba(0,240,255,0.04)"/>
+    <!-- Icons inside cards -->
+    <circle cx="50" cy="86" r="12" stroke="#00f0ff" stroke-width="1" fill="none" opacity="0.6"/>
+    <path d="M44 86 L50 80 L56 86 M50 80 V94" stroke="#00f0ff" stroke-width="1.2" fill="none" opacity="0.6"/>
+    <rect x="118" y="78" width="24" height="16" rx="3" stroke="#a855f7" stroke-width="1" fill="none" opacity="0.6"/>
+    <circle cx="126" cy="86" r="3" fill="#a855f7" opacity="0.4"/>
+    <!-- Bottom nav -->
+    <rect x="16" y="220" width="148" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+    <circle cx="50" cy="238" r="4" fill="#00f0ff" opacity="0.3"/>
+    <circle cx="90" cy="238" r="4" fill="#a855f7" opacity="0.5"/>
+    <circle cx="130" cy="238" r="4" fill="#00f0ff" opacity="0.3"/>
+    <!-- Home indicator -->
+    <rect x="65" y="250" width="50" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
+  </g>
+  <!-- Sync arrows -->
+  <g filter="url(#aglow2)" opacity="0.4">
+    <path d="M155 100 Q130 150 155 200" stroke="#00f0ff" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+    <path d="M445 100 Q470 150 445 200" stroke="#a855f7" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+  </g>
+  <!-- Floating dots -->
+  <circle cx="100" cy="70" r="3" fill="#a855f7" opacity="0.35" filter="url(#aglow2)"/>
+  <circle cx="500" cy="230" r="3" fill="#00f0ff" opacity="0.35" filter="url(#aglow2)"/>
+  <circle cx="520" cy="80" r="2" fill="#a855f7" opacity="0.25" filter="url(#aglow2)"/>
+  <circle cx="80" cy="240" r="2" fill="#00f0ff" opacity="0.25" filter="url(#aglow2)"/>
+</svg>
