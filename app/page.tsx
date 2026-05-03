@@ -9,9 +9,9 @@ const img = {
   hero: "/conclave-assets/tfNtqsRwAfctVDeT3doARvKh410.png",
   about: "/conclave-assets/v5jCUO9x38vrQ3wlrsdzdkgG1A.png",
   group: "/conclave-assets/6lmSb8H78mt1qWXl46zggtzzxg.webp",
-  sf: "/conclave-assets/Lk97YmyWM4Iwb5OKKEdw0kDyC8.png",
-  town: "/conclave-assets/Yq2fnFgNNsUXGeJA3RiyheF4xM.png",
-  townhouse: "/conclave-assets/ibDT02O8QChYK5BBVTrXbSehRHU.png",
+  day1: "/conclave-assets/schedule-day1.jpg",
+  overnight: "/conclave-assets/schedule-overnight.jpg",
+  day2: "/conclave-assets/schedule-day2.jpg",
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
@@ -125,7 +125,7 @@ const scheduleDays = [
     day: "DAY 1",
     date: "7TH JUNE",
     place: "LNCT Campus",
-    image: img.sf,
+    image: img.day1,
     events: [
       ["08:00", "08:30", "Registration & Reporting", "Teams arrive at LNCT Campus, complete reporting, and get ready for the opening block."],
       ["09:00", "09:30", "Inauguration Ceremony", "The national-level hackathon begins with the event vision, structure, and welcome address."],
@@ -139,7 +139,7 @@ const scheduleDays = [
     day: "OVERNIGHT",
     date: "8TH JUNE",
     place: "Build Sprint",
-    image: img.town,
+    image: img.overnight,
     events: [
       ["01:15", "02:00", "Jamming / Entertainment", "A short energy reset before the overnight development push."],
       ["02:00", "04:30", "Development Continues", "Teams keep building, debugging, and validating their prototypes through the night."],
@@ -151,7 +151,7 @@ const scheduleDays = [
     day: "DAY 2",
     date: "8TH JUNE",
     place: "Finale",
-    image: img.townhouse,
+    image: img.day2,
     events: [
       ["07:45", "12:00", "Final Development Session", "Teams refine features, fix issues, and prepare the final product submission."],
       ["13:00", "15:00", "Final Preparation & Submission", "Submission window for pitch material, prototype links, architecture, and team details."],
@@ -196,7 +196,7 @@ const pricePlans = [
     price: "500",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
     code: "FINALE-20",
-    features: ["Team Size : Upto 4 Members", "Breakfast and lunch provided", "Price : 500 Per Team"],
+    features: ["Team Size : 2 - 4 Members", "Breakfast and lunch provided", "Price : 500 Per Team"],
   },
 ];
 
@@ -312,14 +312,19 @@ export default function Home() {
       </section>
 
       <section className="about-section">
-        <div className="about-image">
-          <Image src={img.about} alt="People listening to an event, illustrative" fill sizes="(max-width: 900px) 100vw, 50vw" />
+        <div className="about-image-bg">
+          <Image src={img.about} alt="People listening to an event, illustrative" fill sizes="100vw" priority />
+          <div className="about-overlay" />
         </div>
-        <div className="about-copy">
-          <Kicker>ABOUT THE HACKATHON</Kicker>
-          <h2>30-hour immersion into deep-tech</h2>
-          <p>KLIC-AIIC, in collaboration with LNCT Hackathon Club and HighKernel, is organizing a national-level deep-tech hackathon for innovators, developers, builders, and problem-solvers from across India.</p>
-          <p>The event focuses on product thinking, scalable system design, technical depth, feasibility, architecture, and real-world execution.</p>
+        <div className="about-shell">
+          <div className="about-left">
+            <Kicker>ABOUT THE SUMMIT</Kicker>
+            <h2>30-HOUR IMMERSION INTO DEEP-TECH</h2>
+          </div>
+          <div className="about-right">
+            <p>Buildverse &apos;26 brings the brightest minds to the frontier of innovation to master the Trinity: Artificial Intelligence as the brain, Robotics as the body, and Space as the destination.</p>
+            <p>We are here to ensure that the builders of today become the architects of tomorrow.</p>
+          </div>
         </div>
       </section>
 
