@@ -205,6 +205,7 @@ const faqs = [
   ["Is a female team member compulsory?", "No, having a female member in the team is not compulsory."],
   ["Is Aadhaar card required for registration?", "Yes, Aadhaar card is compulsory for registration. Participants must bring it with them."],
   ["Is solo participation allowed?", "No, solo participation is not allowed. Teams must have 2 - 4 members."],
+  ["Will participants get a place to stay?", "Yes, participant stay will be arranged for the hackathon duration, from 6th to 7th June."],
 ];
 
 const partners = [
