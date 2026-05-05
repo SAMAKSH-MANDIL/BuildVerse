@@ -216,10 +216,10 @@ const partners = [
 const pricePlans = [
   {
     name: "Registration",
-    price: "500",
+    price: "₹500",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
     code: "FINALE-20",
-    features: ["Team Size : 2 - 4 Members", "Meals provided during the event", "Price : 500 rupees Per Team"],
+    features: ["Team Size : 2 - 4 Members", "Meals provided during the event", "Registration Fees : ₹500 Per Team"],
   },
 ];
 
