@@ -314,7 +314,7 @@ main {
   position: absolute;
   transform: scaleX(0);
   transform-origin: left;
-  animation: boot-progress-fill 2.8s 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: boot-progress-fill 1.55s 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .boot-footer {
@@ -375,12 +375,18 @@ main {
   position: relative;
 }
 
+.hero-image-frame {
+  inset: 0;
+  position: absolute;
+  transform-origin: center 52%;
+  will-change: transform;
+  z-index: 0;
+}
+
 .hero-image {
   z-index: 0;
   object-fit: cover;
   filter: brightness(1.18) saturate(1.16);
-  transform: scale(1.16);
-  transform-origin: center 52%;
 }
 
 .hero-image-effect {
@@ -491,7 +497,7 @@ main {
   bottom: 26px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 18px;
   left: 50%;
   max-width: 1230px;
   overflow: hidden;
@@ -504,7 +510,7 @@ main {
 
 .trusted-strip p {
   color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(18px, 2vw, 27px);
+  font-size: clamp(14px, 1.45vw, 20px);
   font-weight: 500;
   line-height: 1.2;
   margin: 0;
@@ -523,7 +529,7 @@ main {
   align-items: center;
   animation: trusted-marquee 22s linear infinite;
   display: flex;
-  gap: clamp(58px, 8vw, 98px);
+  gap: clamp(32px, 4.5vw, 58px);
   justify-content: flex-start;
   min-width: max-content;
   padding: 0 36px;
@@ -534,9 +540,9 @@ main {
   color: rgba(255, 255, 255, 0.84);
   display: inline-flex;
   flex: 0 0 auto;
-  font-size: clamp(28px, 3.5vw, 46px);
+  font-size: clamp(18px, 2.05vw, 27px);
   font-weight: 800;
-  gap: 15px;
+  gap: 12px;
   letter-spacing: -0.04em;
   line-height: 1;
   opacity: 0.72;
@@ -546,9 +552,9 @@ main {
 .trusted-wordmark i {
   display: inline-block;
   flex: 0 0 auto;
-  height: 42px;
+  height: 26px;
   position: relative;
-  width: 42px;
+  width: 26px;
 }
 
 .trusted-wordmark-nietzsche i {
@@ -557,13 +563,13 @@ main {
 }
 
 .trusted-wordmark-globalbank i {
-  border: 11px solid rgba(255, 255, 255, 0.92);
-  border-radius: 10px;
+  border: 7px solid rgba(255, 255, 255, 0.92);
+  border-radius: 7px;
   transform: rotate(45deg);
 }
 
 .trusted-wordmark-fulcon i::before {
-  border: 10px solid rgba(255, 255, 255, 0.92);
+  border: 6px solid rgba(255, 255, 255, 0.92);
   border-left-color: transparent;
   border-radius: 50% 50% 50% 8px;
   content: "";
@@ -579,7 +585,7 @@ main {
 }
 
 .trusted-wordmark-orbit i {
-  border: 10px solid rgba(255, 255, 255, 0.78);
+  border: 6px solid rgba(255, 255, 255, 0.78);
   border-left-color: rgba(255, 255, 255, 0.18);
   border-radius: 50%;
 }
@@ -1716,20 +1722,20 @@ main {
 @media (max-width: 900px) {
   .trusted-strip {
     bottom: 22px;
-    gap: 20px;
+    gap: 14px;
   }
 
   .trusted-logo-row {
-    gap: 54px;
+    gap: 32px;
   }
 
   .trusted-wordmark {
-    font-size: 30px;
+    font-size: 21px;
   }
 
   .trusted-wordmark i {
-    height: 34px;
-    width: 34px;
+    height: 24px;
+    width: 24px;
   }
 
   .boot-loader {
@@ -1807,39 +1813,39 @@ main {
 @media (max-width: 640px) {
   .trusted-strip {
     bottom: 16px;
-    gap: 14px;
+    gap: 10px;
   }
 
   .trusted-strip p {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .trusted-logo-row {
-    gap: 36px;
+    gap: 22px;
     padding: 0 20px;
   }
 
   .trusted-wordmark {
-    font-size: 24px;
-    gap: 10px;
+    font-size: 17px;
+    gap: 7px;
   }
 
   .trusted-wordmark i {
-    height: 27px;
-    width: 27px;
+    height: 19px;
+    width: 19px;
   }
 
   .trusted-wordmark-globalbank i {
-    border-width: 7px;
-    border-radius: 7px;
+    border-width: 5px;
+    border-radius: 5px;
   }
 
   .trusted-wordmark-fulcon i::before {
-    border-width: 7px;
+    border-width: 5px;
   }
 
   .trusted-wordmark-orbit i {
-    border-width: 7px;
+    border-width: 5px;
   }
 
   .boot-loader {

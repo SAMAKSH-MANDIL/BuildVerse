@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Box, BriefcaseBusiness, Coffee, MessageCircle, Network } from "lucide-react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const img = {
@@ -322,6 +322,13 @@ function FeatureCard({
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroImageScale = useTransform(heroScrollProgress, [0, 1], [1.18, 1.02]);
+  const heroImageY = useTransform(heroScrollProgress, [0, 1], ["0%", "5%"]);
   const privilegesListRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: privilegesLineProgress } = useScroll({
     target: privilegesListRef,
@@ -336,8 +343,10 @@ export default function Home() {
 
   return (
     <main>
-      <section className="hero" id="navigation">
-        <Image src={img.hero} alt="Young people looking at a portal" fill priority sizes="100vw" className="hero-image" />
+      <section className="hero" id="navigation" ref={heroRef}>
+        <motion.div className="hero-image-frame" style={{ scale: heroImageScale, y: heroImageY }}>
+          <Image src={img.hero} alt="Young people looking at a portal" fill priority sizes="100vw" className="hero-image" />
+        </motion.div>
         <div className="hero-image-effect" aria-hidden="true" />
         <div className="hero-overlay" />
         <div className="hero-content">
