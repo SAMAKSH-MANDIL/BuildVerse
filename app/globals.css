@@ -6,6 +6,10 @@
   --muted: rgba(255, 255, 255, 0.62);
   --line: rgba(255, 255, 255, 0.16);
   --panel: rgba(255, 255, 255, 0.045);
+  /* Negative value poore top hero block ko upar le jayegi, positive value neeche. */
+  --hero-block-y: 72px;
+  /* Negative value title ko upar le jayegi, positive value neeche. */
+  --buildverse-title-y: 0px;
 }
 
 @theme inline {
@@ -74,6 +78,7 @@ main {
   max-width: 1120px;
   position: relative;
   text-align: center;
+  transform: translateY(var(--hero-block-y));
   width: 100%;
   z-index: 2;
 }
@@ -106,7 +111,7 @@ main {
 .schedule-head h3,
 .schedule-head strong,
 .price-card h3,
-.price-card > strong,
+.price-card>strong,
 .privileges-list h3,
 .event-row h4 {
   font-family: var(--font-anton), Impact, sans-serif;
@@ -121,6 +126,10 @@ main {
   font-size: clamp(76px, 13.4vw, 172px);
   letter-spacing: -0.02em;
   line-height: 0.95;
+}
+
+.hero-title {
+  transform: translateY(var(--buildverse-title-y));
 }
 
 .hero-content .ticket-button {
@@ -326,12 +335,10 @@ main {
 .about-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg, 
-    rgba(15, 2, 24, 0.85) 0%, 
-    rgba(34, 4, 48, 0.6) 50%, 
-    rgba(15, 2, 24, 0.85) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(15, 2, 24, 0.85) 0%,
+      rgba(34, 4, 48, 0.6) 50%,
+      rgba(15, 2, 24, 0.85) 100%);
   z-index: 1;
 }
 
@@ -363,7 +370,7 @@ main {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .about-right {
     padding-top: 0;
   }
@@ -374,7 +381,7 @@ main {
 .feature-lead img,
 .image-card img,
 .speaker-image img,
-.footer-section > img {
+.footer-section>img {
   object-fit: cover;
 }
 
@@ -397,7 +404,8 @@ main {
 }
 
 .about-left .section-kicker {
-  color: #ff00ff; /* Bright magenta/pink */
+  color: #ff00ff;
+  /* Bright magenta/pink */
   margin-bottom: 24px;
 }
 
@@ -538,7 +546,7 @@ main {
   background: linear-gradient(180deg, rgba(2, 0, 3, 0.02), rgba(2, 0, 3, 0.54) 132px, transparent 133px);
 }
 
-.highlights-section .image-card:not(.feature-lead) > img {
+.highlights-section .image-card:not(.feature-lead)>img {
   bottom: auto !important;
   height: 132px !important;
   object-fit: cover;
@@ -638,7 +646,7 @@ main {
   z-index: 5;
 }
 
-.join-section > img {
+.join-section>img {
   object-fit: cover;
   object-position: center;
   z-index: 0;
@@ -646,29 +654,31 @@ main {
 
 .join-overlay {
   background:
-    linear-gradient(180deg, 
-      #020003 0%, 
-      #020003 25%, 
-      transparent 45%, 
-      transparent 60%, 
-      #020003 85%, 
-      #020003 100%
-    );
+    linear-gradient(180deg,
+      #020003 0%,
+      #020003 25%,
+      transparent 45%,
+      transparent 60%,
+      #020003 85%,
+      #020003 100%);
   inset: -120px 0 0 0;
   position: absolute;
   z-index: 1;
 }
 
 .join-shell {
-  --join-text-top: -120px; /* 👈 Header position (negative = higher) */
-  --join-grid-bottom: 55px; /* 👈 Grid position (positive = lower) */
+  --join-text-top: -120px;
+  /* 👈 Header position (negative = higher) */
+  --join-grid-bottom: 55px;
+  /* 👈 Grid position (positive = lower) */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1180px;
   min-height: 470px;
-  padding: 0 22px 30px; /* Reduced bottom padding to give more room at the bottom */
+  padding: 0 22px 30px;
+  /* Reduced bottom padding to give more room at the bottom */
   position: relative;
   z-index: 2;
 }
@@ -777,7 +787,7 @@ main {
   font-size: 30px;
 }
 
-.speaker-card > span {
+.speaker-card>span {
   color: var(--muted);
   display: block;
   font-size: 15px;
@@ -878,7 +888,7 @@ main {
   padding: 26px 28px 0;
 }
 
-.price-card > strong {
+.price-card>strong {
   display: block;
   font-size: 72px;
   line-height: 1;
@@ -979,13 +989,15 @@ main {
   position: relative;
 }
 
-.privileges-list::before {
+.privileges-progress-line {
   background: #c000ff;
-  content: "";
-  height: 78px;
+  border-radius: 999px;
+  bottom: 0;
   left: -3px;
+  pointer-events: none;
   position: absolute;
   top: 0;
+  transform-origin: top;
   width: 5px;
 }
 
@@ -998,7 +1010,7 @@ main {
 }
 
 .privileges-list h3 {
-  font-size: 34px;
+  font-size: clamp(24px, 4vw, 34px);
 }
 
 .privileges-list svg {
@@ -1055,7 +1067,7 @@ main {
 }
 
 .sponsor-grid {
-  align-items: center;
+  align-items: stretch;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   max-width: 960px;
@@ -1074,6 +1086,9 @@ main {
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid var(--line);
   border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   min-height: 190px;
   padding: 26px;
 }
@@ -1100,7 +1115,7 @@ main {
   position: relative;
 }
 
-.footer-section > img {
+.footer-section>img {
   z-index: 0;
 }
 
@@ -1144,7 +1159,7 @@ main {
 }
 
 .floating-nav span,
-.footer-content nav a + a {
+.footer-content nav a+a {
   border-left: 1px solid var(--line);
 }
 
@@ -1284,6 +1299,11 @@ main {
   .privileges-intro {
     position: static;
   }
+
+  .privileges-list {
+    gap: 38px;
+    padding-left: 46px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1321,6 +1341,21 @@ main {
   .benefits-grid,
   .sponsor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .privileges-list {
+    gap: 32px;
+    padding-left: 34px;
+  }
+
+  .privileges-list article {
+    gap: 16px;
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .privileges-list svg {
+    height: 26px;
+    width: 26px;
   }
 
   .event-row {

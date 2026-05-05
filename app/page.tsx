@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { Box, BriefcaseBusiness, Coffee, MessageCircle, Network } from "lucide-react";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const img = {
   hero: "/conclave-assets/tfNtqsRwAfctVDeT3doARvKh410.png",
@@ -123,7 +123,7 @@ const benefits = [
 const scheduleDays = [
   {
     day: "DAY 1",
-    date: "7TH JUNE",
+    date: "6TH JUNE",
     place: "LNCT Campus",
     image: img.day1,
     events: [
@@ -137,7 +137,7 @@ const scheduleDays = [
   },
   {
     day: "OVERNIGHT",
-    date: "8TH JUNE",
+    date: "7TH JUNE",
     place: "Build Sprint",
     image: img.overnight,
     events: [
@@ -149,7 +149,7 @@ const scheduleDays = [
   },
   {
     day: "DAY 2",
-    date: "8TH JUNE",
+    date: "7TH JUNE",
     place: "Finale",
     image: img.day2,
     events: [
@@ -176,12 +176,35 @@ const privileges = [
   ["Opportunities & Community", "The event supports internships, networking, startup visibility, and long-term BuildVerse builder growth."],
 ];
 
+type EventStat =
+  | {
+      kind: "number";
+      value: number;
+      suffix?: string;
+      label: string;
+    }
+  | {
+      kind: "text";
+      value: string;
+      label: string;
+    };
+
+const eventStats: EventStat[] = [
+  { kind: "number", value: 250, suffix: "+", label: "Expected Participation" },
+  { kind: "number", value: 20, label: "Finalist Teams" },
+  { kind: "number", value: 30, label: "Continuous Hours" },
+  { kind: "text", value: "India", label: "Pan India Reach" },
+];
+
 const faqs = [
   ["Who can participate in the hackathon?", "Students, developers, designers, and builder teams from across India can participate through the online selection process."],
   ["What is the event format?", "The hackathon has an online submission round followed by a 30-hour offline grand finale for shortlisted teams."],
   ["What should teams submit in Round 1?", "Teams should submit a problem statement, pitch deck, proposed solution, prototype or MVP if available, technical architecture, and team details."],
   ["How many teams reach the offline finale?", "The final shortlisted pool is planned for the Top 20 teams."],
   ["Where will the grand finale happen?", "The 30-hour offline grand finale will take place at LNCT Campus, Bhopal."],
+  ["Is a female team member compulsory?", "No, having a female member in the team is not compulsory."],
+  ["Is Aadhaar card required for registration?", "Yes, Aadhaar card is compulsory for registration. Participants must bring it with them."],
+  ["Is solo participation allowed?", "No, solo participation is not allowed. Teams must have 2 - 4 members."],
 ];
 
 const partners = [
@@ -196,7 +219,7 @@ const pricePlans = [
     price: "500",
     image: "/conclave-assets/TN9s6FEBD5MaqfIaUCTBeswP7i8.png",
     code: "FINALE-20",
-    features: ["Team Size : 2 - 4 Members", "Breakfast and lunch provided", "Price : 500 Per Team"],
+    features: ["Team Size : 2 - 4 Members", "Meals provided during the event", "Price : 500 rupees Per Team"],
   },
 ];
 
@@ -226,6 +249,39 @@ function Kicker({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.p>
+  );
+}
+
+function CountUpStat({ stat, index }: { stat: EventStat; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 90%", "center 55%"],
+  });
+  const [displayValue, setDisplayValue] = useState(
+    stat.kind === "number" ? `0${stat.suffix ?? ""}` : stat.value
+  );
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (stat.kind !== "number") {
+      return;
+    }
+
+    setDisplayValue(`${Math.round(stat.value * latest)}${stat.suffix ?? ""}`);
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="stat"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.4 }}
+    >
+      <strong>{displayValue}</strong>
+      <span>{stat.label}</span>
+    </motion.div>
   );
 }
 
@@ -265,6 +321,11 @@ function FeatureCard({
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
+  const privilegesListRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: privilegesLineProgress } = useScroll({
+    target: privilegesListRef,
+    offset: ["start 80%", "end 45%"],
+  });
 
   useEffect(() => {
     const handleScroll = () => setShowNav(window.scrollY > 400);
@@ -280,9 +341,9 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-meta">
             <span>LNCT CAMPUS, BHOPAL</span>
-            <span>7 - 8 JUNE</span>
+            <span>6 - 7 JUNE</span>
           </div>
-          <h1>BUILDVERSE</h1>
+          <h1 className="hero-title">BUILDVERSE</h1>
           <Button />
         </div>
       </section>
@@ -290,23 +351,8 @@ export default function Home() {
       <section className="statement-section">
         <h2 className="scroll-fill-text">30 HOURS. TOP 20 TEAMS. ONE MISSION: BUILDING DEEP-TECH PRODUCTS THAT SOLVE REAL-WORLD PROBLEMS</h2>
         <div className="stats-grid">
-          {[
-            ["250+", "Expected Participation"],
-            ["20", "Finalist Teams"],
-            ["30", "Continuous Hours"],
-            ["India", "Pan India Reach"],
-          ].map(([value, label], index) => (
-            <motion.div 
-              className="stat" 
-              key={label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-            >
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </motion.div>
+          {eventStats.map((stat, index) => (
+            <CountUpStat stat={stat} index={index} key={stat.label} />
           ))}
         </div>
       </section>
@@ -481,7 +527,7 @@ export default function Home() {
               <div className="ticket-meta">
                 <span>LNCT BHOPAL</span>
                 <span>{plan.code}</span>
-                <span>7 - 8 JUNE</span>
+                <span>6 - 7 JUNE</span>
               </div>
             </motion.article>
           ))}
@@ -494,7 +540,12 @@ export default function Home() {
           <h2>What teams experience</h2>
           <p>A serious builder environment designed for real product development, deep technical review, and long-term innovation outcomes.</p>
             </div>
-            <div className="privileges-list">
+            <div className="privileges-list" ref={privilegesListRef}>
+              <motion.div
+                aria-hidden="true"
+                className="privileges-progress-line"
+                style={{ scaleY: privilegesLineProgress }}
+              />
               {privileges.map(([title, text], index) => {
                 const Icon = privilegeIcons[index];
                 return (
@@ -581,7 +632,7 @@ export default function Home() {
           <h2>BUILD WHAT BECOMES YOUR FUTURE</h2>
           <div className="footer-meta">
             <div>
-              <p>7th - 8th June</p>
+              <p>6th - 7th June</p>
               <span>LNCT Campus, Bhopal</span>
             </div>
             <div className="calendar">
