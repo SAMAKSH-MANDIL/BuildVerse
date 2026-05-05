@@ -638,7 +638,7 @@ export default function Home() {
             </div>
             <div className="calendar">
               <strong>JUN</strong>
-              <span>7</span>
+              <span>6</span>
               <small>DAY 1</small>
             </div>
           </div>
