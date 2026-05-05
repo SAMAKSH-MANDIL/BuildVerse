@@ -197,15 +197,15 @@ const eventStats: EventStat[] = [
 ];
 
 const faqs = [
-  ["Who can participate in the hackathon?", "Students, developers, designers, and builder teams from across India can participate through the online selection process."],
-  ["What is the event format?", "The hackathon has an online submission round followed by a 30-hour offline grand finale for shortlisted teams."],
-  ["What should teams submit in Round 1?", "Teams should submit a problem statement, pitch deck, proposed solution, prototype or MVP if available, technical architecture, and team details."],
-  ["How many teams reach the offline finale?", "The final shortlisted pool is planned for the Top 20 teams."],
-  ["Where will the grand finale happen?", "The 30-hour offline grand finale will take place at LNCT Campus, Bhopal."],
-  ["Is a female team member compulsory?", "No, having a female member in the team is not compulsory."],
-  ["Is Aadhaar card required for registration?", "Yes, Aadhaar card is compulsory for registration. Participants must bring it with them."],
-  ["Is solo participation allowed?", "No, solo participation is not allowed. Teams must have 2 - 4 members."],
-  ["Will participants get a place to stay?", "Yes, participant stay will be arranged for the hackathon duration, from 6th to 7th June."],
+  ["Who can participate in BuildVerse?", "Students, developers, designers, and builder teams from across India can apply through the online selection process."],
+  ["What is the hackathon format?", "BuildVerse starts with an online submission round, followed by a 30-hour offline grand finale for shortlisted teams."],
+  ["What should teams submit in Round 1?", "Teams should submit their problem statement, pitch deck, proposed solution, prototype or MVP if available, technical architecture, and team details."],
+  ["How many teams will reach the offline finale?", "The offline finale is planned for the Top 20 shortlisted teams."],
+  ["Where will the grand finale take place?", "The 30-hour offline grand finale will take place at LNCT Campus, Bhopal."],
+  ["Is a female team member compulsory?", "No. Having a female member in the team is not compulsory."],
+  ["What documents are required for registration?", "Aadhaar card is required for registration. Participants must carry their Aadhaar card when reporting at the venue."],
+  ["Is solo participation allowed?", "No. Solo participation is not allowed. Each team must have 2 - 4 members."],
+  ["Will participants get a place to stay?", "Yes. Participant stay will be arranged for the hackathon duration, from 6th to 7th June."],
 ];
 
 const partners = [
@@ -611,24 +611,32 @@ export default function Home() {
       </section>
 
       <section className="faq-section">
-        <div className="section-heading">
-          <Kicker>{"FAQ's"}</Kicker>
-          <h2>GOT QUESTIONS?</h2>
-          <p>Quick answers for teams preparing their submissions</p>
-        </div>
-        <div className="faq-list">
-          {faqs.map(([question, answer], index) => (
-            <motion.details 
-              key={question}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-            >
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </motion.details>
-          ))}
+        <div className="participant-faq-frame">
+          <div className="section-heading">
+            <Kicker>{"FAQ's"}</Kicker>
+            <h2>Participant Guide</h2>
+            <p>Quick answers for teams preparing their submissions, travel, and on-campus reporting</p>
+          </div>
+          <div className="participant-faq-chips" aria-label="Participant essentials">
+            <span>Team size: 2 - 4</span>
+            <span>Aadhaar required</span>
+            <span>Stay: 6th - 7th June</span>
+            <span>Meals provided</span>
+          </div>
+          <div className="faq-list">
+            {faqs.map(([question, answer], index) => (
+              <motion.details 
+                key={question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+              >
+                <summary>{question}</summary>
+                <p>{answer}</p>
+              </motion.details>
+            ))}
+          </div>
         </div>
       </section>
 
