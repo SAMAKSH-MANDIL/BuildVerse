@@ -9,7 +9,7 @@ const bootLines = [
   { command: "run finale --hours 30", note: "6 - 7 June boot complete" },
 ];
 
-export default function BuildverseBootLoader({ duration = 2000 }: { duration?: number }) {
+export default function BuildverseBootLoader({ duration = 1500 }: { duration?: number }) {
   const [isExiting, setIsExiting] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
 
