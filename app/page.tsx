@@ -338,6 +338,7 @@ export default function Home() {
     <main>
       <section className="hero" id="navigation">
         <Image src={img.hero} alt="Young people looking at a portal" fill priority sizes="100vw" className="hero-image" />
+        <div className="hero-image-effect" aria-hidden="true" />
         <div className="hero-overlay" />
         <div className="hero-content">
           <div className="hero-meta">
@@ -346,6 +347,25 @@ export default function Home() {
           </div>
           <h1 className="hero-title">BUILDVERSE</h1>
           <Button />
+        </div>
+        <div className="trusted-strip" aria-label="Trusted partners">
+          <p>Trusted By World&apos;s Biggest Startups:</p>
+          <div className="trusted-marquee">
+            <div className="trusted-logo-row">
+              {["Nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"].map((name) => (
+                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={name}>
+                  <i aria-hidden="true" />
+                  {name}
+                </span>
+              ))}
+              {["Nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"].map((name) => (
+                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={`${name}-copy`}>
+                  <i aria-hidden="true" />
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
