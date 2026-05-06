@@ -357,25 +357,7 @@ export default function Home() {
           <h1 className="hero-title">BUILDVERSE</h1>
           <Button />
         </div>
-        <div className="trusted-strip" aria-label="Trusted partners">
-          <p>Trusted By World&apos;s Biggest Startups:</p>
-          <div className="trusted-marquee">
-            <div className="trusted-logo-row">
-              {["Nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"].map((name) => (
-                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={name}>
-                  <i aria-hidden="true" />
-                  {name}
-                </span>
-              ))}
-              {["Nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"].map((name) => (
-                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={`${name}-copy`}>
-                  <i aria-hidden="true" />
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+
       </section>
 
       <section className="statement-section">
