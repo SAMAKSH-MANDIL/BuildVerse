@@ -17,69 +17,117 @@ const img = {
 
 
 
-const topicCards = [
+const themesData = [
   {
-    title: "Web Development",
+    title: "Education Technology",
     points: [
-      "Real-Time Systems: Collaborative apps like docs, whiteboards, coding platforms.",
-      "API Gateway: Routing, rate limiting, monitoring for microservices.",
-      "Edge Performance: CDN-like delivery and SSR optimization.",
+      "Innovate learning platforms and tools",
+      "Educational accessibility solutions",
+      "AI-driven personalized learning",
     ],
-    image: "/conclave-assets/track-webdev.svg",
+    image: "/tracks/theme_edtech.png",
   },
   {
-    title: "App Development",
+    title: "Healthcare Innovation",
     points: [
-      "Offline-First: Apps that work offline and sync later.",
-      "Real-Time Sync: Chat and live collaboration systems.",
-      "Notifications: Smart alerts and background processing.",
+      "Solutions for patient care & wellness",
+      "Medical data management systems",
+      "Digital health monitoring tools",
     ],
-    image: "/conclave-assets/track-appdev.svg",
+    image: "/tracks/theme_healthcare.png",
   },
   {
-    title: "AI/ML/Data Science",
+    title: "SaaS & Enterprise",
     points: [
-      "RAG Systems: AI assistants using document retrieval.",
-      "Multi-Agent AI: Agents automating workflows collaboratively.",
-      "Time-Series: Prediction systems for finance/weather/sales.",
+      "Business productivity suites",
+      "Enterprise management software",
+      "Scalable B2B cloud solutions",
     ],
-    image: "/conclave-assets/track-aiml.svg",
+    image: "/tracks/theme_saas.png",
   },
   {
-    title: "Web3/Blockchain",
+    title: "Smart Cities / Civic Tech",
     points: [
-      "Decentralized Identity: Wallet-based authentication systems.",
-      "Smart Contracts: Voting, escrow, marketplaces.",
-      "DAO Governance: Community voting and proposals.",
+      "Urban infrastructure technology",
+      "Public service automation",
+      "Sustainability & energy tech",
     ],
-    image: "/conclave-assets/track-web3.svg",
-  },
-  {
-    title: "Cybersecurity",
-    points: [
-      "Authentication: Secure login and MFA systems.",
-      "Threat Detection: Log analysis and intrusion detection.",
-      "Zero Trust: Access control and verification systems.",
-    ],
-    image: "/conclave-assets/track-cybersecurity.svg",
-  },
-  {
-    title: "Agritech/Rural",
-    points: [
-      "Crop Intelligence: Yield prediction and advisory systems.",
-      "Supply Chain: Farm-to-market logistics platforms.",
-      "Climate Systems: Weather and risk dashboards.",
-    ],
-    image: "/conclave-assets/track-agritech.svg",
+    image: "/tracks/theme_smartcity.png",
   },
   {
     title: "FinTech",
     points: [
-      "Fraud Detection: Transaction monitoring and alerts.",
-      "Payments: Gateway and transaction systems.",
-      "Financial Analytics: Expense and investment tracking.",
+      "Financial services & payments",
+      "Economic inclusion solutions",
+      "Blockchain-based finance",
     ],
-    image: "/conclave-assets/track-fintech.svg",
+    image: "/tracks/theme_fintech.png",
+  },
+  {
+    title: "AgriTech / Rural",
+    points: [
+      "Farming tech & supply chain",
+      "Agricultural data innovation",
+      "Rural connectivity solutions",
+    ],
+    image: "/tracks/theme_agritech.png",
+  },
+];
+
+const developmentTracks = [
+  {
+    title: "Web Application",
+    points: [
+      "Responsive web-based platforms",
+      "Real-time collaboration tools",
+      "High-performance frontend systems",
+    ],
+    image: "/tracks/track_webapp.png",
+  },
+  {
+    title: "App Development",
+    points: [
+      "Android and iOS applications",
+      "Mobile-first user experiences",
+      "Cross-platform native solutions",
+    ],
+    image: "/tracks/track_mobileapp.png",
+  },
+  {
+    title: "CLI & DevTools",
+    points: [
+      "Developer-focused terminal tools",
+      "Command line utilities",
+      "Automation scripts & systems",
+    ],
+    image: "/tracks/track_cli.png",
+  },
+  {
+    title: "Blockchain / Web3",
+    points: [
+      "Decentralized applications (dApps)",
+      "Smart contract development",
+      "Web3 infrastructure & wallets",
+    ],
+    image: "/tracks/track_blockchain.png",
+  },
+  {
+    title: "Generative AI / ML",
+    points: [
+      "AI-powered predictive systems",
+      "Machine learning models",
+      "Deep learning implementations",
+    ],
+    image: "/tracks/track_ai.png",
+  },
+  {
+    title: "Native Applications",
+    points: [
+      "Windows, Mac, Linux software",
+      "Cross-platform desktop apps",
+      "High-performance native tools",
+    ],
+    image: "/tracks/track_desktop.png",
   },
 ];
 
@@ -386,21 +434,98 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="content-section highlights-section">
-          <div className="section-heading">
-            <Kicker>HIGHLIGHTS</Kicker>
-            <h2>HACKATHON TRACKS</h2>
-            <p>High-impact themes selected for current industry relevance</p>
-          </div>
-          <div className="feature-grid">
-            <article className="feature-lead">
-              <Image src={img.footer} alt="Golden Gate bridge, illustrative" fill sizes="(max-width: 900px) 100vw, 25vw" />
-              <div className="feature-lead-copy">
-                <h3>CORE THEMES / TRACKS</h3>
-              </div>
-          </article>
-          {topicCards.map((item, index) => (
-            <FeatureCard key={item.title} item={item} index={index} />
+      <section className="content-section highlights-section" id="tracks">
+        <div className="section-heading wide">
+          <Kicker>HACKATHON</Kicker>
+          <h2>THEMES</h2>
+          <p>
+            Participants must select one theme as the core problem domain for their project.
+          </p>
+        </div>
+        
+        <div className="premium-themes-grid">
+          <motion.article 
+             className="premium-theme-card tall"
+             initial={{ opacity: 0, x: -30 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8 }}
+          >
+             <div className="tall-card-bg">
+               <Image src={img.hero} alt="Core Themes" fill style={{ objectFit: 'cover' }} />
+               <div className="tall-card-overlay" />
+             </div>
+          </motion.article>
+
+          {themesData.map((item, index) => (
+            <motion.article 
+               key={item.title}
+               className="premium-theme-card"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: index * 0.1, duration: 0.6 }}
+            >
+               <div className="theme-card-image">
+                 <Image src={item.image} alt={item.title} fill style={{ objectFit: 'cover' }} />
+                 <div className="image-overlay" />
+               </div>
+               <div className="theme-card-content">
+                 <h3>{item.title}</h3>
+                 <ul>
+                   {item.points.map((point, i) => (
+                     <li key={i}>+ {point}</li>
+                   ))}
+                 </ul>
+               </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <div className="section-heading wide" style={{ marginTop: '120px' }}>
+          <Kicker>DEVELOPMENT</Kicker>
+          <h2>TRACKS</h2>
+          <p>
+            Select according to your selected theme and solution. Teams may choose one or multiple tracks.
+          </p>
+        </div>
+
+        <div className="cyber-tracks-grid">
+          <motion.article 
+             className="cyber-track-card tall"
+             initial={{ opacity: 0, x: -30 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8 }}
+          >
+             <div className="tall-card-bg">
+               <Image src={img.about} alt="Hackathon Tracks" fill style={{ objectFit: 'cover' }} />
+               <div className="tall-card-overlay" />
+             </div>
+          </motion.article>
+
+          {developmentTracks.map((track, index) => (
+             <motion.div 
+               key={track.title}
+               className="cyber-track-card"
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: index * 0.1, duration: 0.5 }}
+             >
+               <div className="track-card-image">
+                 <Image src={track.image} alt={track.title} fill style={{ objectFit: 'cover' }} />
+                 <div className="image-overlay" />
+               </div>
+               <div className="track-card-content">
+                 <h4>{track.title}</h4>
+                 <ul>
+                    {track.points.map((point, i) => (
+                      <li key={i}>+ {point}</li>
+                    ))}
+                 </ul>
+               </div>
+             </motion.div>
           ))}
         </div>
       </section>
