@@ -798,7 +798,7 @@ export default function Home() {
               <Image src="/collab-assets/anupam_bigger.png" alt="Anupam" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
             </div>
             <div className="collab-logo highkernel-logo">
-              <Image src="/collab-assets/HighKernel_clean.png" alt="HighKernel" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
+              <Image src="/collab-assets/hackathon club enhanced image.png" alt="LNCT Hackathon Club" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
             </div>
           </div>
           <div className="copyright">
