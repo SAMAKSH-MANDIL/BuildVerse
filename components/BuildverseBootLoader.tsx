@@ -79,7 +79,7 @@ export default function BuildverseBootLoader({ duration = 1500 }: { duration?: n
         </div>
       </div>
 
-      <p className="boot-footer">KLIC-AIIC x LNCT Hackathon Club x HighKernel</p>
+      <p className="boot-footer">KLIC-AIIC x LNCT Group Hackathon Club x HighKernel</p>
     </div>
   );
 }

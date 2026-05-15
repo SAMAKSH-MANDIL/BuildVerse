@@ -15,7 +15,10 @@ const img = {
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
-const trustedWordmarks = ["nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"];
+const organisingBodies = [
+  "Kalchuri incubation centre (KLIC | AIIC)",
+  "LNCT Group Hackathon Club",
+];
 
 const themesData = [
   {
@@ -258,8 +261,14 @@ const faqs = [
 
 const partners = [
   ["KLIC-AIIC", "Kalchuri Incubation Centre and Anupam Incubation and Innovation Centre lead the organising body."],
-  ["LNCT Hackathon Club", "The collaboration partner supporting hackathon execution, community, and builder outreach."],
+  ["LNCT Group Hackathon Club", "The organising body driving hackathon execution, community engagement, and builder outreach."],
   ["HighKernel", "The technology collaboration partner supporting scalable software, AI-driven systems, and deep-tech solutions for real-world problems."],
+];
+
+const sponsors = [
+  { name: "Cybrom", logo: "/sponsor-assets/Cybrom.jpeg", className: "cybrom-logo" },
+  { name: "N8N", logo: "/sponsor-assets/N8n-1.svg", className: "n8n-logo" },
+  { name: "High Kernel", logo: "/sponsor-assets/High_kernel.jpeg", className: "high-kernel-sponsor-logo" },
 ];
 
 const pricePlans = [
@@ -408,19 +417,17 @@ export default function Home() {
           <Button />
         </div>
 
-        <div className="trusted-strip" aria-label="Trusted partners">
-          <p>Trusted By World&apos;s Biggest Startups:</p>
+        <div className="trusted-strip" aria-label="Organising bodies">
+          <p>Our Hackathon Organising Bodies</p>
           <div className="trusted-marquee">
             <div className="trusted-logo-row">
-              {trustedWordmarks.map((name) => (
-                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={name}>
-                  <i aria-hidden="true" />
+              {organisingBodies.map((name) => (
+                <span className="trusted-wordmark trusted-wordmark-text" key={name}>
                   {name}
                 </span>
               ))}
-              {trustedWordmarks.map((name) => (
-                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={`${name}-copy`}>
-                  <i aria-hidden="true" />
+              {organisingBodies.map((name) => (
+                <span className="trusted-wordmark trusted-wordmark-text" key={`${name}-copy`}>
                   {name}
                 </span>
               ))}
@@ -787,14 +794,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="event-sponsors-section" id="sponsors">
+        <h2>SPONSORS</h2>
+        <div className="collab-logo-row sponsor-logo-row" aria-label="Event sponsors">
+          {sponsors.map((sponsor, index) => (
+            <motion.div
+              className={`collab-logo sponsor-logo-card ${sponsor.className}`}
+              key={sponsor.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.45 }}
+              whileHover={{ y: -5 }}
+            >
+              <Image
+                src={sponsor.logo}
+                alt={sponsor.name}
+                fill
+                loading="lazy"
+                sizes="(max-width: 640px) 280px, 320px"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       <footer className="footer-section" id="footer">
         <Image src={img.footer} alt="Golden gate bridge san francisco" fill sizes="100vw" />
         <div className="footer-overlay" />
         <div className="footer-content">
-          <nav aria-label="Footer navigation">
-            <a href="#schedule">Schedule</a>
-            <a href="#register">Register</a>
-          </nav>
           <h2>BUILD WHAT BECOMES YOUR FUTURE</h2>
           <div className="footer-meta">
             <div>
@@ -819,12 +847,12 @@ export default function Home() {
               <Image src="/collab-assets/anupam_bigger.png" alt="Anupam" fill loading="eager" sizes="(max-width: 640px) 315px, 430px" />
             </div>
             <div className="collab-logo highkernel-logo">
-              <Image src="/collab-assets/hackathon club enhanced image.png" alt="LNCT Hackathon Club" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
+              <Image src="/collab-assets/hackathon club enhanced image.png" alt="LNCT Group Hackathon Club" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
             </div>
           </div>
           <div className="copyright">
             <span>{"\u00A9 BuildVerse Hackathon. All rights reserved."}</span>
-            <a href="#navigation">KLIC-AIIC x LNCT Hackathon Club x HighKernel</a>
+            <a href="#navigation">KLIC-AIIC x LNCT Group Hackathon Club x HighKernel</a>
           </div>
         </div>
       </footer>
