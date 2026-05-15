@@ -15,7 +15,7 @@ const img = {
   footer: "/conclave-assets/oPKkR9QsDfdiv2Yb8TLUMcVFCAw.png",
 };
 
-
+const trustedWordmarks = ["nietzsche", "GlobalBank", "Fulcon", "NURI", "Orbit"];
 
 const themesData = [
   {
@@ -408,6 +408,25 @@ export default function Home() {
           <Button />
         </div>
 
+        <div className="trusted-strip" aria-label="Trusted partners">
+          <p>Trusted By World&apos;s Biggest Startups:</p>
+          <div className="trusted-marquee">
+            <div className="trusted-logo-row">
+              {trustedWordmarks.map((name) => (
+                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={name}>
+                  <i aria-hidden="true" />
+                  {name}
+                </span>
+              ))}
+              {trustedWordmarks.map((name) => (
+                <span className={`trusted-wordmark trusted-wordmark-${name.toLowerCase()}`} key={`${name}-copy`}>
+                  <i aria-hidden="true" />
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="statement-section">
