@@ -16,7 +16,7 @@ const img = {
 };
 
 const organisingBodies = [
-  "Kalchuri incubation centre (KLIC | AIIC)",
+  "Kalchuri Incubation Centre (KLIC | AIIC)",
   "LNCT Group Hackathon Club",
 ];
 
