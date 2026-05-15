@@ -278,7 +278,9 @@ const barcodeBars = [3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 3, 1, 1, 4, 2, 3, 1, 2, 4, 1,
 function Button({ className = "" }: { className?: string }) {
   return (
     <motion.a 
-      href="#register" 
+      href="https://unstop.com/p/buildverse-hackathon-national-level-deep-tech-hackatho-lnct-group-of-colleges-bhopal-madhya-pradesh-1686045"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`ticket-button ${className}`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
