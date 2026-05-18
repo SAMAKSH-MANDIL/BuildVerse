@@ -458,6 +458,8 @@ main {
 .privileges-intro h2,
 .sponsors-section h2,
 .event-sponsors-section h2,
+.organising-partners-section h2,
+.supporting-partners-section h2,
 .footer-section h2,
 .stat strong,
 .feature-lead h3,
@@ -915,7 +917,9 @@ main {
 .benefits-section,
 .faq-section,
 .sponsors-section,
-.event-sponsors-section {
+.event-sponsors-section,
+.organising-partners-section,
+.supporting-partners-section {
   margin: 0 auto;
   max-width: 1180px;
   padding: 92px 22px;
@@ -1776,7 +1780,9 @@ main {
 }
 
 .sponsors-section h2,
-.event-sponsors-section h2 {
+.event-sponsors-section h2,
+.organising-partners-section h2,
+.supporting-partners-section h2 {
   font-size: clamp(42px, 7vw, 88px);
   margin-bottom: 46px;
   text-align: center;
@@ -1784,6 +1790,24 @@ main {
 
 .event-sponsors-section {
   padding-top: 0;
+}
+
+.organising-partners-section,
+.supporting-partners-section {
+  padding-bottom: 56px;
+  padding-top: 56px;
+}
+
+.supporting-partners-section {
+  padding-bottom: 92px;
+}
+
+.supporting-partners-placeholder {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
 }
 
 .sponsor-logo-row {
@@ -1805,8 +1829,16 @@ main {
   width: 200px;
 }
 
-.sponsor-logo-card.high-kernel-sponsor-logo {
+.sponsor-logo-card.high-kernel-organising-logo {
   width: 260px;
+}
+
+.sponsor-logo-card.saral-one-logo {
+  width: 220px;
+}
+
+.sponsor-logo-card.trendy-logo {
+  width: 240px;
 }
 
 .sponsor-grid {
@@ -1966,6 +1998,17 @@ main {
   font-size: 14px;
   justify-content: space-between;
   width: 100%;
+}
+
+.site-copyright {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 22px 48px;
+}
+
+.site-copyright .copyright {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
 }
 
 .floating-nav {
@@ -2213,7 +2256,9 @@ main {
 
   .sponsor-logo-card.cybrom-logo,
   .sponsor-logo-card.n8n-logo,
-  .sponsor-logo-card.high-kernel-sponsor-logo {
+  .sponsor-logo-card.high-kernel-organising-logo,
+  .sponsor-logo-card.saral-one-logo,
+  .sponsor-logo-card.trendy-logo {
     max-width: 340px;
     width: 100%;
   }

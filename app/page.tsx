@@ -265,10 +265,25 @@ const partners = [
   ["HighKernel", "The technology collaboration partner supporting scalable software, AI-driven systems, and deep-tech solutions for real-world problems."],
 ];
 
-const sponsors = [
+type PartnerLogoCard = {
+  name: string;
+  logo: string;
+  className: string;
+};
+
+const sponsors: PartnerLogoCard[] = [
   { name: "Cybrom", logo: "/sponsor-assets/Cybrom.jpeg", className: "cybrom-logo" },
   { name: "N8N", logo: "/sponsor-assets/N8n-1.svg", className: "n8n-logo" },
-  { name: "High Kernel", logo: "/sponsor-assets/High_kernel.jpeg", className: "high-kernel-sponsor-logo" },
+];
+
+/** One logo per partner — add more { name, logo, className } rows as needed. */
+const organisingPartnerLogos: PartnerLogoCard[] = [
+  { name: "High Kernel", logo: "/sponsor-assets/High_kernel.jpeg", className: "high-kernel-organising-logo" },
+];
+
+const supportingPartnersLogos: PartnerLogoCard[] = [
+  { name: "Saral One", logo: "/supportive-partner-assets/saralone.jpeg", className: "saral-one-logo" },
+  { name: "Trendy", logo: "/supportive-partner-assets/trendy.png", className: "trendy-logo" },
 ];
 
 const pricePlans = [
@@ -283,6 +298,32 @@ const pricePlans = [
 
 const privilegeIcons = [BriefcaseBusiness, MessageCircle, Box, Network, Coffee];
 const barcodeBars = [3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 3, 1, 1, 4, 2, 3, 1, 2, 4, 1, 3, 2, 2, 1, 4, 3, 1, 2, 1, 4, 2, 3];
+
+function PartnerLogoStrip({ items, ariaLabel }: { items: PartnerLogoCard[]; ariaLabel: string }) {
+  return (
+    <div className="collab-logo-row sponsor-logo-row" aria-label={ariaLabel}>
+      {items.map((sponsor, index) => (
+        <motion.div
+          className={`collab-logo sponsor-logo-card ${sponsor.className}`}
+          key={sponsor.name}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1, duration: 0.45 }}
+          whileHover={{ y: -5 }}
+        >
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            fill
+            loading="lazy"
+            sizes="(max-width: 640px) 280px, 320px"
+          />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 function Button({ className = "" }: { className?: string }) {
   return (
@@ -794,32 +835,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="event-sponsors-section" id="sponsors">
-        <h2>SPONSORS</h2>
-        <div className="collab-logo-row sponsor-logo-row" aria-label="Event sponsors">
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              className={`collab-logo sponsor-logo-card ${sponsor.className}`}
-              key={sponsor.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.45 }}
-              whileHover={{ y: -5 }}
-            >
-              <Image
-                src={sponsor.logo}
-                alt={sponsor.name}
-                fill
-                loading="lazy"
-                sizes="(max-width: 640px) 280px, 320px"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <footer className="footer-section" id="footer">
+      <section className="footer-section" id="footer">
         <Image src={img.footer} alt="Golden gate bridge san francisco" fill sizes="100vw" />
         <div className="footer-overlay" />
         <div className="footer-content">
@@ -850,10 +866,28 @@ export default function Home() {
               <Image src="/collab-assets/hackathon club enhanced image.png" alt="LNCT Group Hackathon Club" fill loading="eager" sizes="(max-width: 640px) 270px, 310px" />
             </div>
           </div>
-          <div className="copyright">
-            <span>{"\u00A9 BuildVerse Hackathon. All rights reserved."}</span>
-            <a href="#navigation">KLIC-AIIC x LNCT Group Hackathon Club x HighKernel</a>
-          </div>
+        </div>
+      </section>
+
+      <section className="event-sponsors-section" id="sponsors">
+        <h2>SPONSORS</h2>
+        <PartnerLogoStrip items={sponsors} ariaLabel="Event sponsors" />
+      </section>
+
+      <section className="organising-partners-section" id="organising-partners">
+        <h2>ORGANISING PARTNER</h2>
+        <PartnerLogoStrip items={organisingPartnerLogos} ariaLabel="Organising partners" />
+      </section>
+
+      <section className="supporting-partners-section" id="supporting-partners">
+        <h2>SUPPORTING PARTNERS</h2>
+        <PartnerLogoStrip items={supportingPartnersLogos} ariaLabel="Supporting partners" />
+      </section>
+
+      <footer className="site-copyright">
+        <div className="copyright">
+          <span>{"\u00A9 BuildVerse Hackathon. All rights reserved."}</span>
+          <a href="#navigation">KLIC-AIIC x LNCT Group Hackathon Club x HighKernel</a>
         </div>
       </footer>
 
