@@ -5,6 +5,7 @@ import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from 'react-hot-toast';
+import { BackgroundTask } from "svix/dist/api/backgroundTask";
 
 const GA_MEASUREMENT_ID = "G-PEQ9ZRXBBZ";
 
@@ -18,6 +19,7 @@ const anton = Anton({
   variable: "--font-anton",
   subsets: ["latin"],
 });
+
 
 export const metadata: Metadata = {
   title: "BuildVerse Hackathon - LNCT Bhopal",

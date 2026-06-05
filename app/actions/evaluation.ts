@@ -4,6 +4,9 @@ import prisma from '@/lib/prisma';
 import { getCurrentUserRole, requireAuthenticatedUser } from '@/lib/auth/permissions';
 import { UserRole } from '@/lib/auth/roles';
 
+import { SaveEvaluationSchema } from '@/lib/validations/schemas';
+import { rateLimit } from '@/lib/security/rate-limiter';
+
 type SaveEvaluationInput = {
   assignmentId: string;
   scores: {
@@ -15,9 +18,25 @@ type SaveEvaluationInput = {
   status: 'DRAFT' | 'SUBMITTED';
 };
 
-export async function saveEvaluation(input: SaveEvaluationInput) {
+export async function saveEvaluation(rawInput: SaveEvaluationInput) {
   try {
     const user = await requireAuthenticatedUser();
+    
+    // Rate limit: 20 saves per minute per user to prevent abuse
+    const clerkUserId = user.id || (user as any).clerkUserId || 'unknown';
+    const rateLimitResult = rateLimit('saveEvaluation', clerkUserId, 20, 60000);
+    if (!rateLimitResult.success) {
+      return { success: false, error: 'Too many requests. Please slow down and try again later.' };
+    }
+
+    // Input Validation using Zod
+    const validationResult = SaveEvaluationSchema.safeParse(rawInput);
+    if (!validationResult.success) {
+      console.error('Validation error:', validationResult.error.format());
+      return { success: false, error: 'Invalid input data format.' };
+    }
+    const input = validationResult.data;
+
     const role = await getCurrentUserRole();
 
     const assignment = await prisma.evaluatorAssignment.findUnique({
