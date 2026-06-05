@@ -1,0 +1,322 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model PlatformUser {
+  id          String     @id @default(cuid())
+  clerkUserId String     @unique
+  email       String     @unique
+  fullName    String?
+  imageUrl    String?
+  role        UserRole   @default(PENDING)
+  status      UserStatus @default(PENDING_APPROVAL)
+
+  evaluatorProfileId String?           @unique
+  evaluatorProfile   EvaluatorProfile? @relation(fields: [evaluatorProfileId], references: [id])
+
+  auditLogs AuditLog[]
+
+  lastLoginAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model EvaluatorProfile {
+  id           String        @id @default(cuid())
+  PlatformUser PlatformUser?
+
+  assignments EvaluatorAssignment[]
+  evaluations Evaluation[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Theme {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  teams     Team[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Track {
+  id        String      @id @default(cuid())
+  name      String      @unique
+  teams     TeamTrack[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Team {
+  id             String @id @default(cuid())
+  teamCode       String @unique
+  registrationId String @unique
+  teamName       String
+  leaderName     String
+  leaderEmail    String
+
+  status              TeamStatus       @default(FINALIST)
+  qualificationStatus QualStatus       @default(QUALIFIED)
+  attendanceStatus    AttendanceStatus @default(NOT_MARKED)
+
+  themeId String?
+  theme   Theme?  @relation(fields: [themeId], references: [id])
+
+  tracks TeamTrack[]
+
+  pitchDeckUrl    String?
+  githubUrl       String?
+  demoVideoUrl    String?
+  architectureUrl String?
+  prototypeUrl    String?
+
+  round1Status RoundStatus @default(NOT_STARTED)
+  round2Status RoundStatus @default(NOT_STARTED)
+  round3Status RoundStatus @default(NOT_STARTED)
+
+  disqualified Boolean @default(false)
+
+  finalScore Float?
+  finalRank  Int?
+  award      String?
+
+  assignments  EvaluatorAssignment[]
+  evaluations  Evaluation[]
+  roundResults RoundResult[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TeamTrack {
+  teamId  String
+  trackId String
+  team    Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  track   Track  @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@id([teamId, trackId])
+}
+
+model EvaluationRound {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  title     String
+  weighting Float
+  status    RoundState @default(PENDING)
+
+  criteria     EvaluationCriterion[]
+  assignments  EvaluatorAssignment[]
+  evaluations  Evaluation[]
+  roundResults RoundResult[]
+
+  startTime DateTime?
+  endTime   DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model EvaluationCriterion {
+  id      String          @id @default(cuid())
+  roundId String
+  round   EvaluationRound @relation(fields: [roundId], references: [id])
+
+  title       String
+  description String?
+  maxMarks    Int
+  order       Int     @default(0)
+
+  scores CriterionScore[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EvaluatorAssignment {
+  id                 String @id @default(cuid())
+  evaluatorProfileId String
+  teamId             String
+  roundId            String
+
+  status AssignmentStatus @default(ASSIGNED)
+
+  evaluator EvaluatorProfile @relation(fields: [evaluatorProfileId], references: [id])
+  team      Team             @relation(fields: [teamId], references: [id])
+  round     EvaluationRound  @relation(fields: [roundId], references: [id])
+
+  evaluation Evaluation?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([evaluatorProfileId, teamId, roundId])
+}
+
+model Evaluation {
+  id           String              @id @default(cuid())
+  assignmentId String              @unique
+  assignment   EvaluatorAssignment @relation(fields: [assignmentId], references: [id])
+
+  evaluatorProfileId String
+  teamId             String
+  roundId            String
+
+  evaluator EvaluatorProfile @relation(fields: [evaluatorProfileId], references: [id])
+  team      Team             @relation(fields: [teamId], references: [id])
+  round     EvaluationRound  @relation(fields: [roundId], references: [id])
+
+  scores    CriterionScore[]
+  feedbacks EvaluationFeedback[]
+
+  totalScore Int              @default(0)
+  status     EvaluationStatus @default(DRAFT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([evaluatorProfileId, teamId, roundId])
+}
+
+model CriterionScore {
+  id           String @id @default(cuid())
+  evaluationId String
+  criterionId  String
+
+  score Int
+
+  evaluation Evaluation          @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
+  criterion  EvaluationCriterion @relation(fields: [criterionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([evaluationId, criterionId])
+}
+
+model EvaluationFeedback {
+  id           String @id @default(cuid())
+  evaluationId String
+
+  criterionId String?
+  content     String
+
+  evaluation Evaluation @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model RoundResult {
+  id      String @id @default(cuid())
+  teamId  String
+  roundId String
+
+  averageScore   Float
+  evaluatorCount Int
+
+  team  Team            @relation(fields: [teamId], references: [id])
+  round EvaluationRound @relation(fields: [roundId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([teamId, roundId])
+}
+
+model ScoreOverride {
+  id      String @id @default(cuid())
+  teamId  String
+  roundId String
+
+  newScore     Float
+  reason       String
+  superAdminId String
+
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id          String  @id @default(cuid())
+  clerkUserId String
+  userName    String?
+  userRole    String
+
+  action   String
+  entity   String
+  entityId String?
+
+  oldValue String?
+  newValue String?
+  reason   String?
+
+  user PlatformUser @relation(fields: [clerkUserId], references: [clerkUserId])
+
+  createdAt DateTime @default(now())
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  EVALUATOR
+  PENDING
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING_APPROVAL
+}
+
+enum TeamStatus {
+  FINALIST
+  WITHDRAWN
+}
+
+enum QualStatus {
+  QUALIFIED
+}
+
+enum AttendanceStatus {
+  NOT_MARKED
+  PRESENT
+  LATE
+  ABSENT
+}
+
+enum RoundStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  PARTIALLY_EVALUATED
+  COMPLETED
+  LOCKED
+}
+
+enum RoundState {
+  PENDING
+  ACTIVE
+  CLOSED
+  LOCKED
+}
+
+enum AssignmentStatus {
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  REASSIGNED
+  CANCELLED
+}
+
+enum EvaluationStatus {
+  NOT_STARTED
+  DRAFT
+  SUBMITTED
+  REOPENED
+  LOCKED
+}

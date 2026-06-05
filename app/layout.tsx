@@ -3,6 +3,8 @@ import { Anton, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from 'react-hot-toast';
 
 const GA_MEASUREMENT_ID = "G-PEQ9ZRXBBZ";
 
@@ -46,7 +48,10 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        <ClientWrapper>{children}</ClientWrapper>
+        <ClerkProvider>
+          <Toaster position="top-right" />
+          <ClientWrapper>{children}</ClientWrapper>
+        </ClerkProvider>
       </body>
     </html>
   );
